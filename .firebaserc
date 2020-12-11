@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "arcvehicle-34bf9": {
+      "hosting": {
+        "arcvehicle": [
+          "arcvehicle-34bf9"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "arcvehicle-34bf9"
+  }
+}
