@@ -1,0 +1,25 @@
+<header class="header">
+    <div class="header__line"></div>
+    <nav class="nav">
+        <div class="nav__logo" [routerLink]="[ '/home' ]">
+            <img class="nav__logo--img" src="../../../assets/images/Arc_logo_white_background.png" alt="...">
+        </div>
+        <div class="nav__btn">
+            <a href="#" class="nav__btn--hover">RESERVE MY VECTOR</a>
+        </div>
+        <div *ngIf="!StatusMenu" class="nav__menu" (click)="activeMenu()">
+            <img class="nav__menu--img" src="../../../assets/images/menu-button-of-three-horizontal-lines.svg"
+                alt="menu">
+        </div>
+        <div *ngIf="StatusMenu" class="wrapper">
+            <div class="wrapper__menu">
+                <img (click)="closeMenu()" class="wrapper__menu--img" src="../../../assets/images/close.svg"
+                    alt="menu">
+                <nav class="wrapper__menu--list">
+                    <a href="#">Home</a>
+                    <a href="#">About</a>
+                </nav>
+            </div>
+        </div>
+    </nav>
+</header>
