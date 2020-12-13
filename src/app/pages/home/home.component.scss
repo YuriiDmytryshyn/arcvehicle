@@ -153,7 +153,7 @@
         background-repeat: no-repeat;
     }
     &__main {
-        width: 300px;
+        width: 15%;
         min-height: 350px;
         margin-left: 75%;
         margin-top: -550px;
@@ -175,53 +175,62 @@
         margin-left: 35%;
         & p {
             color: $white-color;
+            font-size: 18px;
         }
     }
     &__btn {
         margin-left: 42%;
         & a {
             text-decoration: none;
-            color: $white-color;
-            background-color: rgba($color: #000000, $alpha: 0.4);
-            display: inline-block;
-            &:hover {
-                background-color: inherit;
-            }
+            font-size: 26px;
+            text-align: center;
+            cursor: pointer;
+            padding: 5px;
         }
         &--hover {
-            padding: 1em 2em;
-            font-weight: bold;
-            font-size: 18px;
-            border: 2px solid brown;
-            transition: all 300ms ease;
-            box-shadow: 0px 4px 10px 2px rgba(black, 0.2);
-            &:before {
-                position: absolute;
-                content: "";
-                width: 0%;
-                height: 100%;
-                background: white;
-                top: 0;
-                left: auto;
-                right: 0;
-                z-index: -1;
-                transition: all 300ms ease;
-            }
-            &:hover {
-                color: black;
-                box-shadow: none;
-                &:before {
-                    position: absolute;
-                    content: "";
-                    width: 100%;
-                    height: 100%;
-                    background: white;
-                    top: 0;
-                    left: 0;
-                    right: 0;
-                    z-index: -1;
-                }
-            }
+            color: brown;
+            transition: all 0.3s;
+            position: relative;
+        }
+        &--hover span {
+            transition: all 0.3s;
+        }
+        &--hover::before {
+            content: "";
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 1;
+            opacity: 0;
+            transition: all 0.3s;
+            border-top-width: 1px;
+            border-bottom-width: 1px;
+            border-top-style: solid;
+            border-bottom-style: solid;
+            border-top-color: rgba(255, 255, 255, 0.5);
+            border-bottom-color: rgba(255, 255, 255, 0.5);
+            transform: scale(0.1, 1);
+        }
+        &--hover:hover::before {
+            opacity: 1;
+            transform: scale(1, 1);
+        }
+        &--hover::after {
+            content: "";
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 1;
+            transition: all 0.3s;
+            background-color: inherit;
+        }
+        &--hover:hover::after {
+            opacity: 0;
+            transform: scale(0.1, 1);
         }
     }
 }
@@ -351,7 +360,7 @@
         width: 50%;
         height: 100%;
     }
-    &__content{
+    &__content {
         font-size: 50px;
     }
 }

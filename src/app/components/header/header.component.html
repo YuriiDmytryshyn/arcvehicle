@@ -1,25 +1,22 @@
-<header class="header">
+<header class="header" [style.transform]="menuActive">
     <div class="header__line"></div>
     <nav class="nav">
         <div class="nav__logo" [routerLink]="[ '/home' ]">
-            <img class="nav__logo--img" src="../../../assets/images/Arc_logo_white_background.png" alt="...">
+            <img (click)="closeMenu()" class="nav__logo--img" src="assets/images/logo-arc.svg"
+                alt="...">
         </div>
         <div class="nav__btn">
             <a href="#" class="nav__btn--hover">RESERVE MY VECTOR</a>
         </div>
-        <div *ngIf="!StatusMenu" class="nav__menu" (click)="activeMenu()">
-            <img class="nav__menu--img" src="../../../assets/images/menu-button-of-three-horizontal-lines.svg"
-                alt="menu">
+        <div class="nav__menu" (click)="activeMenu()">
+            <img class="nav__menu--img" src="assets/images/menu-button-of-three-horizontal-lines.svg" alt="menu">
         </div>
-        <div *ngIf="StatusMenu" class="wrapper">
-            <div class="wrapper__menu">
-                <img (click)="closeMenu()" class="wrapper__menu--img" src="../../../assets/images/close.svg"
-                    alt="menu">
-                <nav class="wrapper__menu--list">
-                    <a href="#">Home</a>
-                    <a href="#">About</a>
-                </nav>
-            </div>
+        <div class="menu" [style.transform]="translateMenu">
+            <img (click)="closeMenu()" class="menu--img" src="assets/images/close.svg" alt="menu">
+            <nav class="menu--list">
+                <a href="#"><span>Home</span></a>
+                <a href="#"><span>About</span></a>
+            </nav>
         </div>
     </nav>
 </header>
