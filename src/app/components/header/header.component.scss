@@ -2,7 +2,8 @@
 @import "../../../assets/base/variables";
 
 .header {
-    transition: all 1s;
+    z-index: 9999;
+    transition: transform 1s;
     user-select: none;
     height: 20vh;
     width: 100vw;
@@ -98,13 +99,13 @@
 
 .menu {
     top: 0;
-    width: 30%;
+    width: 400px;
     right: 0;
     height: 100vh;
     position: absolute;
     @include flexbox(flex, space-around, center, column, nowrap);
     background-color: $light-black-color;
-    transition: all 1s;
+    transition: transform 1s;
     &--img {
         position: absolute;
         right: 5vw;
@@ -122,8 +123,9 @@
     }
     &--list {
         position: absolute;
-        @include flexbox(flex, center, center, column, nowrap);
-        height: 70%;
+        @include flexbox(flex, flex-start, center, column, nowrap);
+        height: 60%;
+        margin-top: 50px;
         min-height: 300px;
         & a {
             background-color: $light-black-color;

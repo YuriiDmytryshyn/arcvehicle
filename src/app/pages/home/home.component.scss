@@ -1,6 +1,10 @@
 @import "../../../assets/base/mixins";
 @import "../../../assets/base/variables";
 
+.conteiner{
+    transition: transform 1s;
+}
+
 .wrapper {
     user-select: none;
     overflow: hidden;
