@@ -12,9 +12,10 @@
     @include flexbox(flex, space-around, center, column);
     position: fixed;
     &__line {
+        margin-top: 0px;
         min-height: 10px;
         width: 100%;
-        background-color: brown;
+        background-color: #B2361D;
     }
 }
 
