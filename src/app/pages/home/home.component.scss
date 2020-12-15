@@ -1,7 +1,7 @@
 @import "../../../assets/base/mixins";
 @import "../../../assets/base/variables";
 
-.conteiner{
+.conteiner {
     user-select: none;
     transition: transform 1s;
 }
@@ -271,14 +271,18 @@
         margin-right: -10%;
         color: lightgrey;
         &--top {
+            @include flexbox(flex, center, flex-start, row);
             margin-bottom: 50px;
             & img {
+                margin-right: 5px;
                 height: 20px;
                 width: 20px;
             }
         }
         &--bottom {
+            @include flexbox(flex, center, flex-start, row);
             & img {
+                margin-right: 5px;
                 height: 20px;
                 width: 20px;
             }
@@ -344,12 +348,14 @@
 }
 
 .news {
-    display: flex;
+    @include flexbox(flex, center, center, row);
     margin-top: 3px;
     box-shadow: 0px 4px 2px 2px black;
     height: 80vh;
     width: 100%;
     &__image {
+        height: 100%;
+        width: 50%;
         background-image: url(../../../assets/images/Goodwood_Logo_arc-vector-electric-motorbike-fullres-Regualr-1.jpg);
         background-position: center;
         background-size: cover;
@@ -358,7 +364,294 @@
         height: 100%;
     }
     &__content {
+        height: 100%;
+        width: 50%;
         margin-top: 100px;
         font-size: 50px;
     }
+}
+
+@media screen and (max-device-width: 1430px) and (min-device-width: 988px) {
+    .wrapper {
+        &__content {
+            & h2 {
+                font-size: 24px;
+            }
+            & p {
+                font-size: 18px;
+            }
+        }
+    }
+    .discover {
+        &__content {
+            & h2 {
+                font-size: 22px;
+            }
+            & p {
+                font-size: 16px;
+            }
+        }
+    }
+    .family {
+        &__content {
+            height: 100%;
+            width: 70%;
+            &--text {
+                width: 70%;
+                color: $white-color;
+                line-height: 1.5;
+                & h2 {
+                    font-size: 22px;
+                    line-height: 2;
+                }
+                & p {
+                    font-size: 16px;
+                    text-align: justify;
+                }
+            }
+        }
+    }
+    .vector {
+        &__title {
+            & h2 {
+                padding-top: 15px;
+                text-align: center;
+                font-size: 22px;
+                line-height: 1.5;
+            }
+            & p {
+                text-align: center;
+                font-size: 16px;
+            }
+        }
+        &__main {
+            width: 15%;
+            min-height: 350px;
+            margin-left: 75%;
+            margin-top: -550px;
+            position: relative;
+            & span {
+                margin-bottom: 12px;
+                img {
+                    margin-right: 5px;
+                    height: 20px;
+                    width: 20px;
+                }
+            }
+        }
+        &__bottom {
+            margin-top: 70px;
+            margin-bottom: 50px;
+            margin-left: 25%;
+            & p {
+                color: $white-color;
+                font-size: 18px;
+            }
+        }
+        &__btn {
+            margin-left: 37%;
+            & a {
+                font-size: 22px;
+            }
+        }
+    }
+    .individual {
+        &__center {
+            top: -90%;
+            & h2 {
+                font-size: 22px;
+                line-height: 2;
+            }
+            & p {
+                font-size: 16px;
+                line-height: 1.5;
+            }
+        }
+        &__right {
+            top: -140%;
+            width: 15%;
+        }
+    }
+    .adventure {
+        &__content {
+            top: -90%;
+            & p {
+                font-size: 22px;
+                line-height: 2;
+            }
+        }
+    }
+    .about {
+        &__content {
+            width: 43%;
+            & h2 {
+                font-size: 22px;
+            }
+            & p {
+                font-size: 16px;
+            }
+        }
+    }
+}
+
+@media screen and (max-device-width: 980px) and (min-device-width: $breakpoint-tablet) {
+    .wrapper {
+        &__content {
+            width: 300px;
+            & h2 {
+                font-size: 20px;
+            }
+            & p {
+                font-size: 16px;
+            }
+        }
+    }
+    .discover {
+        &__content {
+            width: 60%;
+            & h2 {
+                font-size: 20px;
+            }
+            & p {
+                font-size: 16px;
+            }
+        }
+        &__link {
+            margin-top: 150px;
+        }
+    }
+
+    .family {
+        height: 100vh;
+        @include flexbox(flex, center, center, column);
+        &__img {
+            width: 100%;
+            height: 40%;
+        }
+        &__content {
+            height: 60%;
+            width: 100%;
+            &--text {
+                width: 60%;
+                color: $white-color;
+                line-height: 1.5;
+                & h2 {
+                    font-size: 20px;
+                    line-height: 2;
+                }
+                & p {
+                    font-size: 16px;
+                }
+            }
+            &--link {
+                margin-top: 0px;
+            }
+        }
+    }
+
+    .vector {
+        &__title {
+            width: 300px;
+            & h2 {
+                padding-top: 18px;
+                font-size: 20px;
+            }
+            & p {
+                font-size: 16px;
+            }
+        }
+        &__main {
+            width: 25%;
+            min-height: 300px;
+            & span {
+                margin-bottom: 10px;
+            }
+        }
+        &__bottom {
+            margin-left: 20%;
+            & p {
+                color: $white-color;
+                font-size: 18px;
+            }
+        }
+        &__btn {
+            margin-left: 37%;
+            & a {
+                font-size: 20px;
+            }
+        }
+    }
+    .individual {
+        &__center {
+            position: relative;
+            width: 34%;
+            top: -90%;
+            margin-left: 45%;
+            margin-right: -20%;
+            & h2 {
+                font-size: 20px;
+            }
+            & p {
+                font-size: 16px;
+            }
+        }
+        &__right {
+            top: -180%;
+            width: 20%;
+            margin-left: 10%;
+            margin-right: -60;
+        }
+    }
+
+    .adventure {
+        &__content {
+            width: 40%;
+            top: -90%;
+            margin-left: 30%;
+            margin-right: -30%;
+            & p {
+                font-size: 20px;
+                line-height: 2;
+            }
+        }
+    }
+
+    .about {
+        height: 60vh;
+        &__content {
+            width: 50%;
+            margin-left: 10%;
+            & h2 {
+                font-size: 20px;
+            }
+            & p {
+                font-size: 16px;
+            }
+        }
+    }
+
+    .news {
+        @include flexbox(flex, center, center, column);
+        height: 100vh;
+        width: 100%;
+        &__image {
+            height: 60%;
+            width: 100%;
+            & img {
+                width: 100%;
+                height: 100%;
+                background-image: url(../../../assets/images/Goodwood_Logo_arc-vector-electric-motorbike-fullres-Regualr-1.jpg);
+                object-fit: cover;
+            }
+        }
+        &__content {
+            height: 40%;
+            width: 100%;
+            margin-top: 100px;
+            font-size: 50px;
+        }
+    }
+}
+
+@media screen and (max-device-width: $breakpoint-tablet) and (min-device-width: $breakpoint-phones) {
 }

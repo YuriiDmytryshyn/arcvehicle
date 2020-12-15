@@ -16,7 +16,7 @@
         width: 50%;
         color: $white-color;
         line-height: 1.5;
-        margin-bottom: 150px;
+        margin-bottom: 100px;
         & h2 {
             width: 65%;
             font-size: 26px;
@@ -160,4 +160,35 @@
     &__copyright {
         padding: 2%;
     }
+}
+
+@media screen and (max-device-width: 1430px) and (min-device-width: 988px) {
+    .reserve {
+        &__content {
+            margin-bottom: 50px;
+        }
+    }
+}
+
+@media screen and (max-device-width: 980px) and (min-device-width: $breakpoint-tablet) {
+    .reserve {
+        &__content {
+            @include flexbox(flex, center, center, column);
+            width: 50%;
+            color: $white-color;
+            line-height: 1.5;
+            margin-bottom: 0px;
+            & h2 {
+                width: 65%;
+                font-size: 20px;
+            }
+            & p {
+                width: 65%;
+                font-size: 16px;
+            }
+        }
+    }
+}
+
+@media screen and (max-device-width: $breakpoint-tablet) and (min-device-width: $breakpoint-phones) {
 }

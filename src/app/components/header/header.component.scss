@@ -185,3 +185,13 @@
         }
     }
 }
+
+
+
+@media screen and (max-device-width: 980px) and (min-device-width: $breakpoint-tablet) {
+
+}
+
+@media screen and (max-device-width: $breakpoint-tablet) and (min-device-width: $breakpoint-phones){
+
+}
