@@ -3,6 +3,7 @@
 
 .conteiner {
     user-select: none;
+    transition: transform 1s;
 }
 
 .reserve {
@@ -131,17 +132,17 @@
             }
         }
         .contacts__office {
-            @include flexbox(flex, space-around, center, column);
+            @include flexbox(flex, space-between, center, column);
             width: 20%;
             height: 100%;
         }
         .contacts__sales {
-            @include flexbox(flex, space-around, center, column);
+            @include flexbox(flex, space-between, center, column);
             width: 20%;
             height: 100%;
         }
         .contacts__media {
-            @include flexbox(flex, space-around, center, column);
+            @include flexbox(flex, space-between, center, column);
             width: 20%;
             height: 100%;
         }
@@ -149,7 +150,7 @@
             @include flexbox(flex, space-around, center, row);
             width: 20%;
             height: 100%;
-            & img{
+            & img {
                 cursor: pointer;
                 width: 20px;
                 height: 20px;

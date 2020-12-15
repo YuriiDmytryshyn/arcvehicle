@@ -1,12 +1,13 @@
 import { Component, OnInit } from '@angular/core';
+import AOS from 'aos';
 import { MenuService } from 'src/app/shared/services/menu.service';
 
 @Component({
-  selector: 'app-footer',
-  templateUrl: './footer.component.html',
-  styleUrls: ['./footer.component.scss']
+  selector: 'app-vector',
+  templateUrl: './vector.component.html',
+  styleUrls: ['./vector.component.scss']
 })
-export class FooterComponent implements OnInit {
+export class VectorComponent implements OnInit {
 
   menuActive = 'translate3d(0,0,0)';
   menuStatus = false;
@@ -15,6 +16,7 @@ export class FooterComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
+    AOS.init();
     this.menuService.menuStatus.subscribe((menuStatus) => {
       this.menuStatus = menuStatus;
       this.isMenuActive(this.menuStatus);

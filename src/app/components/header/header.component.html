@@ -14,8 +14,9 @@
         <div class="menu" [style.transform]="translateMenu">
             <img (click)="closeMenu()" class="menu--img" src="assets/images/close.svg" alt="menu">
             <nav class="menu--list">
-                <a href="#"><span>Home</span></a>
-                <a href="#"><span>About</span></a>
+                <a [routerLink]="[ '/home' ]"><span>Home</span></a>
+                <a [routerLink]="[ '/vector' ]"><span>THE VECTOR</span></a>
+                <a [routerLink]="[ '/about' ]"><span>About</span></a>
             </nav>
         </div>
     </nav>
