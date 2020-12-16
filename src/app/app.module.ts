@@ -1,6 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { CarouselModule } from 'ngx-bootstrap/carousel';
 
@@ -17,7 +18,11 @@ import { HeaderComponent } from './components/header/header.component';
 import { HomeComponent } from './pages/home/home.component';
 import { AboutComponent } from './pages/about/about.component';
 import { VectorComponent } from './pages/vector/vector.component';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { NewsComponent } from './pages/news/news.component';
+import { AdminComponent } from './admin/admin.component';
+import { AdminNewsComponent } from './admin/admin-news/admin-news.component';
+import { AdminAuthComponent } from './admin-auth/admin-auth.component';
+
 
 
 @NgModule({
@@ -28,6 +33,10 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     HomeComponent,
     AboutComponent,
     VectorComponent,
+    NewsComponent,
+    AdminComponent,
+    AdminNewsComponent,
+    AdminAuthComponent,
   ],
   imports: [
     BrowserModule,
