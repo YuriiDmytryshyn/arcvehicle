@@ -158,12 +158,12 @@
     <div class="news__image"></div>
     <div class="news__content">
       <div class="news__content--img">
-        <img class="img" [attr.src]="news[0].image" alt="x-image">
+        <img class="img" [attr.src]="news[0]?.image" alt="x-image">
       </div>
       <div class="news__content--text">
-        <span>News | <span>{{ news[0].date }}</span></span>
-        <h2>{{ news[0].title }}</h2>
-        <p>{{ news[0].text }}</p>
+        <span>News | <span>{{ news[0]?.date }}</span></span>
+        <h2>{{ news[0]?.title }}</h2>
+        <p>{{ news[0]?.text }}</p>
       </div>
     </div>
   </section>

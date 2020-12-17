@@ -11,7 +11,7 @@ import { MenuService } from '../../shared/services/menu.service';
 export class HeaderComponent implements OnInit {
 
   statusMenu: false;
-  translateMenu = 'translate3d(400px,0,0)';
+  translateMenu = 'translate3d(350px,0,0)';
   menuActive = 'translate3d(0,0,0)';
 
   constructor(
@@ -22,13 +22,13 @@ export class HeaderComponent implements OnInit {
   }
 
   activeMenu(): void {
-    this.translateMenu = 'translate3d(399px,0,0)';
-    this.menuActive = 'translate3d(-400px,0,0)';
+    this.translateMenu = 'translate3d(350px,0,0)';
+    this.menuActive = 'translate3d(-348px,0,0)';
     this.menuService.statusMenu(true);
   }
 
   closeMenu(): void {
-    this.translateMenu = 'translate3d(400px,0,0)';
+    this.translateMenu = 'translate3d(350px,0,0)';
     this.menuActive = 'translate3d(0,0,0)';
     this.menuService.statusMenu(false);
   }

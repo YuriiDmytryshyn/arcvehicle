@@ -47,7 +47,7 @@ export class HomeComponent implements OnInit {
     if (status === false) {
       this.menuActive = 'translate3d(0,0,0)';
     } else {
-      this.menuActive = 'translate3d(-380px,0,0)';
+      this.menuActive = 'translate3d(-348px,0,0)';
     }
   }
 

@@ -2,12 +2,13 @@
 @import "../../../assets/base/variables";
 
 .conteiner {
+    overflow: hidden;
     user-select: none;
     transition: transform 1s;
 }
 
 .wrapper {
-    overflow: hidden;
+    position: relative;
     &__img {
         width: 100vw;
         height: 99.7vh;
@@ -49,7 +50,7 @@
             color: $white-color;
             font-size: 18px;
             line-height: 1.5;
-            text-align: justify;
+            text-align: left;
         }
     }
     &__link {
@@ -93,7 +94,7 @@
             line-height: 2;
         }
         & p {
-            text-align: justify;
+            text-align: left;
             font-size: 18px;
             line-height: 1.5;
         }
@@ -144,7 +145,7 @@
                 margin-bottom: 5px;
             }
             & p {
-                text-align: justify;
+                text-align: left;
                 font-size: 14px;
                 line-height: 1.5;
             }
@@ -164,7 +165,7 @@
         background-repeat: no-repeat;
     }
     &__center {
-        @include flexbox(flex, center, flex-start, column);
+        @include flexbox(flex, flex-start, flex-start, column);
         position: relative;
         width: 40%;
         top: -85%;
@@ -220,7 +221,7 @@
             }
             & p {
                 font-size: 16px;
-                text-align: justify;
+                text-align: left;
             }
         }
     }
@@ -251,7 +252,7 @@
             & p {
                 color: lightgray;
                 font-size: 16px;
-                text-align: justify;
+                text-align: left;
             }
         }
     }
@@ -287,7 +288,7 @@
             & p {
                 color: lightgray;
                 font-size: 16px;
-                text-align: justify;
+                text-align: left;
             }
         }
     }
@@ -333,7 +334,7 @@
             & p {
                 color: lightgray;
                 font-size: 16px;
-                text-align: justify;
+                text-align: left;
             }
         }
         &--img {
@@ -533,7 +534,6 @@
             }
         }
     }
-
     .vector {
         height: 60vh;
         @include flexbox(flex, space-around, center, column);
@@ -555,7 +555,6 @@
             }
         }
     }
-
     .philosophy {
         &__center {
             position: relative;
@@ -572,7 +571,6 @@
             }
         }
     }
-
     .specification {
         &__title {
             @include flexbox(flex, center, center, row);
@@ -593,7 +591,6 @@
             margin-right: -15%;
         }
     }
-
     .specification2 {
         &__center {
             width: 35%;
@@ -610,7 +607,6 @@
             }
         }
     }
-
     .interface {
         @include flexbox(flex, center, center, column);
         &__img {
@@ -643,7 +639,6 @@
             }
         }
     }
-
     .head {
         width: 100%;
         height: 120vh;
@@ -684,7 +679,6 @@
             }
         }
     }
-
     .system {
         width: 100%;
         height: 120vh;
@@ -723,7 +717,6 @@
             }
         }
     }
-
     .materials {
         width: 100%;
         height: 90vh;
@@ -756,11 +749,10 @@
             }
         }
     }
-
     .living {
         &__title {
             margin-top: 8%;
-            & h2 {   
+            & h2 {
                 font-size: 20px;
             }
         }
@@ -783,10 +775,367 @@
             }
         }
     }
-
     .gallery {
         width: 100%;
         height: 80vh;
+        background-color: #1c1c1c;
+        &__title {
+            @include flexbox(flex, center, center, row);
+            height: 10%;
+            width: 100%;
+            &--text {
+                color: $white-color;
+                font-size: 22px;
+                line-height: 2;
+            }
+        }
+        &__slider {
+            margin: 0px auto;
+            width: 99%;
+            height: 99%;
+            &--items {
+                & .slide {
+                    @include flexbox(flex, center, space-between, row);
+                    width: 100%;
+                    & .left__big {
+                        @include flexbox(flex, center, center, row);
+                        &--left {
+                            height: 100%;
+                            width: 45%;
+                        }
+                    }
+                    & .left__small {
+                        @include flexbox(flex, space-between, center, column);
+                        &--top {
+                            height: 45%;
+                            width: 45%;
+                        }
+                        &--bottom {
+                            height: 45%;
+                            width: 45%;
+                        }
+                    }
+                    & .right__big {
+                        @include flexbox(flex, center, center, row);
+                        &--right {
+                            height: 100%;
+                            width: 45%;
+                        }
+                    }
+                    & .right__small {
+                        @include flexbox(flex, space-between, center, column);
+                        &--top {
+                            height: 45%;
+                            width: 45%;
+                        }
+                        &--bottom {
+                            height: 45%;
+                            width: 45%;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media screen and (max-device-width: $breakpoint-tablet) and (min-device-width: $breakpoint-phones) {
+    .wrapper {
+        &__content {
+            width: 280px;
+            right: 5%;
+            & h2 {
+                font-size: 18px;
+                line-height: 1.6;
+            }
+            & p {
+                line-height: 1.3;
+                font-size: 14px;
+            }
+        }
+    }
+    .vector {
+        height: 60vh;
+        @include flexbox(flex, space-around, center, column);
+        &__content {
+            @include flexbox(flex, center, flex-start, column);
+            width: 80%;
+            & img {
+                margin-top: 5%;
+                margin-bottom: 5%;
+            }
+            & p {
+                font-size: 16px;
+            }
+        }
+        &__link {
+            margin-left: -0%;
+            &--div {
+                line-height: 2;
+            }
+        }
+    }
+    .philosophy {
+        &__center {
+            position: relative;
+            width: 54%;
+            top: -95%;
+            margin-left: 12%;
+            & h2 {
+                font-size: 16px;
+                line-height: 1.5;
+            }
+            & p {
+                font-size: 14px;
+                line-height: 1.2;
+            }
+        }
+    }
+    .specification {
+        &__title {
+            @include flexbox(flex, center, center, row);
+            position: relative;
+            width: 34%;
+            top: -90%;
+            width: 50%;
+            margin-left: 25%;
+            margin-right: -25%;
+            & h2 {
+                font-size: 24px;
+            }
+        }
+        &__bottom {
+            @include flexbox(flex, center, center, row, wrap);
+            width: 100%;
+            top: -45%;
+            margin-left: 0%;
+            margin-right: 0%;
+            &--content {
+                @include flexbox(flex, space-around, center, column);
+                width: 50%;
+                & img {
+                    margin-bottom: 5px;
+                }
+                & p {
+                    text-align: justify;
+                    font-size: 12px;
+                    line-height: 1.2;
+                }
+            }
+        }
+    }
+    .specification2 {
+        &__center {
+            width: 45%;
+            top: -90%;
+            margin-left: 10%;
+            margin-right: 0%;
+            &--title {
+                line-height: 1.5;
+                font-size: 18px;
+            }
+            &--div {
+                line-height: 1.5;
+                @include flexbox(flex, center, flex-start, row);
+            }
+        }
+    }
+    .interface {
+        height: 110vh;
+        @include flexbox(flex, center, center, column);
+        &__img {
+            width: 100%;
+            height: 40%;
+            background-color: black;
+            &--img {
+                margin-left: 25%;
+                width: 50%;
+                height: 100%;
+            }
+        }
+        &__content {
+            padding-top: 10px;
+            height: 60%;
+            width: 100%;
+            &--text {
+                width: 80%;
+                color: $white-color;
+                line-height: 1.5;
+                & h2 {
+                    font-size: 18px;
+                    line-height: 1.4;
+                }
+                & p {
+                    font-size: 14px;
+                    line-height: 1.3;
+                    text-align: justify;
+                }
+            }
+        }
+    }
+    .head {
+        width: 100%;
+        height: 120vh;
+        background: #232526;
+        background: -webkit-linear-gradient(to top, #000000, #232526);
+        background: linear-gradient(to top, #000000, #232526);
+        @include flexbox(flex, center, center, column);
+        &__content {
+            margin-top: 50px;
+            @include flexbox(flex, center, center, column);
+            width: 100%;
+            height: 50%;
+            &--text {
+                width: 80%;
+                line-height: 1.5;
+                & span {
+                    color: lightgray;
+                }
+                & h2 {
+                    color: $white-color;
+                    font-size: 16px;
+                    line-height: 1.6;
+                }
+                & p {
+                    color: lightgray;
+                    font-size: 12px;
+                    text-align: left;
+                }
+            }
+        }
+        &__slider {
+            margin-top: 70px;
+            margin-left: 9%;
+            width: 80%;
+            height: 50%;
+            &--items {
+                width: 90%;
+            }
+        }
+    }
+    .system {
+        width: 100%;
+        height: 120vh;
+        @include flexbox(flex, center, center, column);
+        background-color: black;
+        &__content {
+            margin-bottom: 100px;
+            @include flexbox(flex, center, center, column);
+            width: 100%;
+            height: 40%;
+            &--text {
+                width: 80%;
+                line-height: 1.5;
+                & span {
+                    color: lightgray;
+                }
+                & h2 {
+                    color: $white-color;
+                    font-size: 18px;
+                    line-height: 2;
+                }
+                & p {
+                    color: lightgray;
+                    font-size: 14px;
+                    text-align: left;
+                }
+            }
+        }
+        &__slider {
+            margin-top: -80px;
+            margin-bottom: 100px;
+            @include flexbox(flex, flex-end, center, column);
+            width: 80%;
+            height: 50%;
+            &--items {
+                width: 90%;
+            }
+        }
+    }
+    .materials {
+        width: 100%;
+        height: 90vh;
+        &__content {
+            @include flexbox(flex, center, flex-start, column);
+            position: relative;
+            width: 95%;
+            top: -95%;
+            margin-left: 12%;
+            margin-right: -48%;
+            &--text {
+                width: 80%;
+                line-height: 1.5;
+                & span {
+                    color: lightgray;
+                }
+                & h2 {
+                    color: $white-color;
+                    font-size: 18px;
+                    line-height: 2;
+                }
+                & p {
+                    color: lightgray;
+                    font-size: 14px;
+                    text-align: left;
+                }
+            }
+            &--img {
+                @include flexbox(flex, space-between, center, row);
+                & img {
+                    width: 60px;
+                    height: 60px;
+                }
+            }
+        }
+    }
+    .living {
+        width: 100%;
+        height: 110vh;
+        background-color: #444949;
+        position: relative;
+        &__title {
+            width: 50%;
+            margin-left: 25%;
+            margin-top: 5%;
+            margin-top: 20px;
+            position: absolute;
+            & h2 {
+                color: $white-color;
+                font-size: 18px;
+                line-height: 1.5;
+                text-align: center;
+            }
+        }
+        &__center {
+            margin-top: 70px;
+            position: absolute;
+            @include flexbox(flex, center, center, column);
+            &--boxs {
+                @include flexbox(flex, flex-start, center, column);
+                margin-top: 5%;
+                width: 80%;
+                & img {
+                    width: 50px;
+                    height: 50px;
+                }
+                & h3 {
+                    margin-top: 15px;
+                    color: lightgray;
+                    font-size: 16px;
+                    line-height: 1.5;
+                }
+                & p {
+                    font-size: 14px;
+                    color: lightgray;
+                    line-height: 1.3;
+                    text-align: center;
+                }
+            }
+        }
+    }
+    .gallery {
+        width: 100%;
+        height: 50vh;
         background-color: #1c1c1c;
         &__title {
             @include flexbox(flex, center, center, row);
