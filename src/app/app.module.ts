@@ -4,6 +4,7 @@ import { FormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { CarouselModule } from 'ngx-bootstrap/carousel';
+import { ModalModule } from 'ngx-bootstrap/modal';
 
 import { AngularFireModule } from '@angular/fire';
 import { AngularFirestoreModule } from '@angular/fire/firestore';
@@ -19,6 +20,7 @@ import { HomeComponent } from './pages/home/home.component';
 import { AboutComponent } from './pages/about/about.component';
 import { VectorComponent } from './pages/vector/vector.component';
 import { NewsComponent } from './pages/news/news.component';
+
 import { AdminComponent } from './admin/admin.component';
 import { AdminNewsComponent } from './admin/admin-news/admin-news.component';
 import { AdminAuthComponent } from './admin-auth/admin-auth.component';
@@ -48,6 +50,7 @@ import { AdminAuthComponent } from './admin-auth/admin-auth.component';
     AngularFireAuthModule,
     BrowserAnimationsModule,
     CarouselModule.forRoot(),
+    ModalModule.forRoot(),
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,9 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, TemplateRef } from '@angular/core';
 import { AngularFireStorage } from '@angular/fire/storage';
 import { Observable } from 'rxjs';
 import { INews } from 'src/app/shared/interfaces/news.interface';
 import { NewsService } from 'src/app/shared/services/news.service';
 import { map } from 'rxjs/operators';
+import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
 
 @Component({
   selector: 'app-admin-news',
@@ -18,14 +19,17 @@ export class AdminNewsComponent implements OnInit {
   newsText: string;
   newsAuthor: string;
   newsImage = '';
+  
   editStatus = true;
   uploadPercent: Observable<number>;
   upload = false;
+  modalRef: BsModalRef;
 
   adminNews: Array<INews> = [];
 
   constructor(
     private newsService: NewsService,
+    private modalService: BsModalService,
     private storage: AngularFireStorage
   ) { }
 
@@ -98,6 +102,10 @@ export class AdminNewsComponent implements OnInit {
   private resetForm(): void {
     this.newsTitle = '';
     this.newsText = '';
+  };
+
+  openModalDelete(template: TemplateRef<any>) {
+    this.modalRef = this.modalService.show(template, { class: 'modal-sm' });
   };
 
   uploadFile(event): void {

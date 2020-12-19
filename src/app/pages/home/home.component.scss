@@ -391,7 +391,7 @@
     }
 }
 
-@media screen and (max-device-width: 1430px) and (min-device-width: 988px) {
+@media screen and (max-device-width: 1200px) and (min-device-width: 992px) {
     .wrapper {
         &__content {
             & h2 {
@@ -418,7 +418,6 @@
             width: 70%;
             &--text {
                 width: 70%;
-                color: $white-color;
                 line-height: 1.5;
                 & h2 {
                     font-size: 22px;
@@ -514,7 +513,7 @@
     }
 }
 
-@media screen and (max-device-width: 980px) and (min-device-width: $breakpoint-tablet) {
+@media screen and (max-device-width: 992px) and (min-device-width: $breakpoint-tablet) {
     .wrapper {
         &__content {
             width: 300px;
@@ -581,14 +580,16 @@
         &__main {
             width: 25%;
             min-height: 300px;
+            margin-left: 70%;
+            margin-top: -500px;
             & span {
                 margin-bottom: 10px;
             }
         }
         &__bottom {
+            margin-top: 70px;
             margin-left: 20%;
             & p {
-                color: $white-color;
                 font-size: 18px;
             }
         }
@@ -610,11 +611,11 @@
                 font-size: 20px;
             }
             & p {
-                font-size: 16px;
+                font-size: 17px;
             }
         }
         &__right {
-            top: -180%;
+            top: -1100px;
             width: 20%;
             margin-left: 10%;
             margin-right: -60;
@@ -622,10 +623,10 @@
     }
     .adventure {
         &__content {
-            width: 40%;
-            top: -90%;
-            margin-left: 30%;
-            margin-right: -30%;
+            width: 30%;
+            top: -85%;
+            margin-left: 35%;
+            margin-right: -35%;
             & p {
                 font-size: 20px;
                 line-height: 2;
@@ -659,7 +660,155 @@
     }
 }
 
-@media screen and (max-device-width: $breakpoint-tablet) and (min-device-width: $breakpoint-phones) {
+@media screen and (max-device-width: $breakpoint-tablet) and (min-device-width: $breakpoint-phonesL) {
+    .wrapper {
+        &__content {
+            width: 300px;
+            & h2 {
+                font-size: 20px;
+            }
+            & p {
+                font-size: 16px;
+            }
+        }
+    }
+    .discover {
+        &__content {
+            width: 60%;
+            & h2 {
+                font-size: 20px;
+            }
+            & p {
+                font-size: 16px;
+            }
+        }
+        &__link {
+            margin-top: 150px;
+        }
+    }
+    .family {
+        height: 100vh;
+        @include flexbox(flex, center, center, column);
+        &__img {
+            width: 100%;
+            height: 40%;
+        }
+        &__content {
+            height: 60%;
+            width: 100%;
+            &--text {
+                width: 70%;
+                color: $white-color;
+                line-height: 1.5;
+                & h2 {
+                    font-size: 18px;
+                    line-height: 1.7;
+                }
+                & p {
+                    font-size: 15px;
+                    line-height: 1.3;
+                }
+            }
+            &--link {
+                margin-top: 0px;
+            }
+        }
+    }
+    .vector {
+        &__title {
+            width: 300px;
+            & h2 {
+                padding-top: 15px;
+                font-size: 17px;
+            }
+            & p {
+                font-size: 16px;
+            }
+        }
+        &__main {
+            width: 35%;
+            min-height: 300px;
+            margin-left: 60%;
+            margin-top: -500px;
+            & span {
+                margin-bottom: 5px;
+            }
+        }
+        &__bottom {
+            margin-top: 50px;
+            margin-left: 7%;
+            & p {
+                text-align: center;
+                font-size: 16px;
+            }
+        }
+        &__btn {
+            margin-left: 40%;
+            & a {
+                font-size: 16px;
+            }
+        }
+    }
+    .individual {
+        &__center {
+            position: relative;
+            width: 45%;
+            top: -95%;
+            margin-left: 45%;
+            & h2 {
+                font-size: 18px;
+            }
+            & p {
+                font-size: 15px;
+            }
+        }
+        &__right {
+            top: -1000px;
+            width: 25%;
+            margin-left: 10%;
+            margin-right: -60;
+        }
+    }
+    .adventure {
+        &__content {
+            width: 35%;
+            top: -90%;
+            margin-left: 35%;
+            margin-right: -35%;
+            & p {
+                font-size: 18px;
+                line-height: 1.7;
+            }
+        }
+    }
+    .about {
+        height: 70vh;
+        &__content {
+            width: 50%;
+            margin-left: 10%;
+            & h2 {
+                font-size: 18px;
+            }
+            & p {
+                font-size: 16px;
+            }
+        }
+    }
+    .news {
+        @include flexbox(flex, center, center, column);
+        height: 100vh;
+        width: 100%;
+        &__image {
+            display: none;
+        }
+        &__content {
+            height: 100%;
+            width: 100%;
+        }
+    }
+}
+
+@media screen and (max-device-width: $breakpoint-phonesL) and (min-device-width: $breakpoint-phones) {
     .wrapper {
         &__content {
             width: 250px;
@@ -834,12 +983,12 @@
     .adventure {
         &__content {
             width: 60%;
-            top: -80%;
+            top: -90%;
             margin-left: 20%;
             margin-right: -20%;
             & p {
                 font-size: 16px;
-                line-height: 1.7;
+                line-height: 1.9;
             }
         }
     }
