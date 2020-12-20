@@ -23,11 +23,13 @@
         position: absolute;
         color: $white-color;
         & h2 {
+            font-family: $font-russo;
             font-size: 26px;
             line-height: 2;
             text-align: end;
         }
         & p {
+            font-family: $font-gothic;
             line-height: 1.5;
             font-size: 20px;
         }
@@ -47,6 +49,7 @@
             margin-bottom: 5%;
         }
         & p {
+            font-family: $font-gothic;
             color: $white-color;
             font-size: 18px;
             line-height: 1.5;
@@ -54,6 +57,7 @@
         }
     }
     &__link {
+        font-family: $font-gothic;
         @include flexbox(flex, center, flex-start, column);
         &--div {
             line-height: 2;
@@ -85,15 +89,17 @@
     &__center {
         position: relative;
         width: 34%;
-        top: -70%;
+        top: -75%;
         margin-left: 17%;
         margin-right: -53%;
         color: $white-color;
         & h2 {
+            font-family: $font-russo;
             font-size: 22px;
             line-height: 2;
         }
         & p {
+            font-family: $font-gothic;
             text-align: left;
             font-size: 18px;
             line-height: 1.5;
@@ -127,6 +133,7 @@
         margin-right: -25%;
         color: $white-color;
         & h2 {
+            font-family: $font-russo;
             font-size: 30px;
         }
     }
@@ -145,6 +152,7 @@
                 margin-bottom: 5px;
             }
             & p {
+                font-family: $font-gothic;
                 text-align: left;
                 font-size: 14px;
                 line-height: 1.5;
@@ -172,6 +180,7 @@
         margin-left: 12%;
         margin-right: -48%;
         &--title {
+            font-family: $font-russo;
             line-height: 2.5;
             color: $white-color;
             font-size: 20px;
@@ -180,6 +189,7 @@
             line-height: 2.5;
             @include flexbox(flex, center, center, row);
             & p {
+                font-family: $font-gothic;
                 color: gray;
                 text-decoration: none;
             }
@@ -216,10 +226,12 @@
             color: $white-color;
             line-height: 1.5;
             & h2 {
+                font-family: $font-russo;
                 font-size: 22px;
                 line-height: 2;
             }
             & p {
+                font-family: $font-gothic;
                 font-size: 16px;
                 text-align: left;
             }
@@ -242,14 +254,17 @@
             width: 60%;
             line-height: 1.5;
             & span {
+                font-family: $font-gothic;
                 color: lightgray;
             }
             & h2 {
+                font-family: $font-russo;
                 color: $white-color;
                 font-size: 22px;
                 line-height: 2;
             }
             & p {
+                font-family: $font-gothic;
                 color: lightgray;
                 font-size: 16px;
                 text-align: left;
@@ -278,14 +293,17 @@
             width: 60%;
             line-height: 1.5;
             & span {
+                font-family: $font-gothic;
                 color: lightgray;
             }
             & h2 {
+                font-family: $font-russo;
                 color: $white-color;
                 font-size: 22px;
                 line-height: 2;
             }
             & p {
+                font-family: $font-gothic;
                 color: lightgray;
                 font-size: 16px;
                 text-align: left;
@@ -324,14 +342,17 @@
             width: 60%;
             line-height: 1.5;
             & span {
+                font-family: $font-gothic;
                 color: lightgray;
             }
             & h2 {
+                font-family: $font-russo;
                 color: $white-color;
                 font-size: 22px;
                 line-height: 2;
             }
             & p {
+                font-family: $font-gothic;
                 color: lightgray;
                 font-size: 16px;
                 text-align: left;
@@ -354,6 +375,7 @@
         margin-top: 5%;
         position: absolute;
         & h2 {
+            font-family: $font-russo;
             color: $white-color;
             font-size: 22px;
             line-height: 2;
@@ -372,12 +394,14 @@
                 height: 50px;
             }
             & h3 {
+                font-family: $font-russo;
                 margin-top: 15px;
                 color: lightgray;
                 font-size: 22px;
                 line-height: 2;
             }
             & p {
+                font-family: $font-gothic;
                 font-size: 18px;
                 color: lightgray;
                 line-height: 1.5;

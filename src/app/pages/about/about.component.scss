@@ -1,0 +1,374 @@
+@import "../../../assets/base/mixins";
+@import "../../../assets/base/variables";
+
+.conteiner {
+    overflow: hidden;
+    user-select: none;
+    transition: transform 1s;
+}
+
+.wrapper {
+    position: relative;
+    &__img {
+        box-shadow: 0px 4px 2px 2px black;
+        width: 100vw;
+        height: 99.7vh;
+        object-fit: cover;
+    }
+    &__content {
+        @include flexbox(flex, flex-start, flex-start, column);
+        width: 520px;
+        top: 70%;
+        margin-left: 10%;
+        position: absolute;
+        color: $white-color;
+        & h2 {
+            font-family: $font-russo;
+            font-size: 26px;
+            line-height: 2;
+            text-align: end;
+        }
+        & p {
+            font-family: $font-gothic;
+            line-height: 1.5;
+            font-size: 20px;
+        }
+    }
+}
+
+.family {
+    height: 90vh;
+    background-color: #3b3d3d;
+    @include flexbox(flex, space-between, center, row);
+    &__content {
+        @include flexbox(flex, center, flex-start, column);
+        width: 40%;
+        margin-left: 12%;
+        & h2 {
+            font-family: $font-russo;
+            font-size: 24px;
+            color: $white-color;
+            line-height: 2;
+        }
+        & p {
+            font-family: $font-gothic;
+            color: $white-color;
+            font-size: 16px;
+            line-height: 1.5;
+            text-align: left;
+        }
+    }
+    &__image {
+        background-image: url(../../../assets/images/meet-the-arc-familyv3.png);
+        background-position: center;
+        background-size: cover;
+        background-repeat: no-repeat;
+        width: 35%;
+        height: 100%;
+    }
+}
+
+.values {
+    position: relative;
+    &__img {
+        width: 100vw;
+        height: 99.7vh;
+        object-fit: cover;
+        box-shadow: 0px 4px 2px 2px black;
+    }
+    &__content {
+        @include flexbox(flex, center, flex-start, column);
+        width: 40%;
+        top: 20%;
+        right: 48%;
+        position: absolute;
+        color: $white-color;
+        & h2 {
+            font-family: $font-russo;
+            font-size: 26px;
+            line-height: 2;
+            text-align: end;
+        }
+        & p {
+            font-family: $font-gothic;
+            line-height: 1.5;
+            font-size: 18px;
+        }
+    }
+}
+
+.alchemists {
+    width: 100%;
+    height: 100vh;
+    &__image {
+        width: 100%;
+        height: 100%;
+        background-image: url(../../../assets/images/it-is-an-adventure.jpg);
+        background-position: center;
+        background-size: cover;
+        background-repeat: no-repeat;
+    }
+    &__content {
+        font-family: $font-russo;
+        width: 80%;
+        top: -85%;
+        margin-left: 10%;
+        margin-right: -10%;
+        color: $white-color;
+        position: relative;
+        text-align: center;
+        & p {
+            font-size: 26px;
+            line-height: 2.2;
+        }
+    }
+}
+
+.future {
+    width: 100%;
+    height: 100vh;
+    &__image {
+        width: 100%;
+        height: 100%;
+        background-image: url(../../../assets/images/the-future.jpg);
+        background-position: center;
+        background-size: cover;
+        background-repeat: no-repeat;
+    }
+    &__content {
+        width: 40%;
+        top: -85%;
+        margin-left: 14%;
+        margin-right: -10%;
+        color: $white-color;
+        position: relative;
+        text-align: left;
+        & h2 {
+            font-size: 24px;
+            font-family: $font-russo;
+        }
+        & p {
+            font-family: $font-gothic;
+            font-size: 18px;
+            line-height: 1.5;
+        }
+    }
+}
+
+@media screen and (max-device-width: 1200px) and (min-device-width: 992px) {
+    .family {
+        height: 100vh;
+        &__content {
+            width: 45%;
+        }
+    }
+    .values {
+        &__content {
+            top: 15%;
+        }
+    }
+    .future {
+        &__content {
+            width: 45%;
+            & p {
+                font-size: 16px;
+            }
+        }
+    }
+}
+
+@media screen and (max-device-width: 992px) and (min-device-width: $breakpoint-tablet) {
+    .wrapper {
+        &__content {
+            & h2 {
+                font-size: 22px;
+            }
+            & p {
+                font-size: 18px;
+            }
+        }
+    }
+    .family {
+        height: 120vh;
+        &__content {
+            width: 45%;
+            & h2 {
+                font-size: 22px;
+            }
+        }
+    }
+    .values {
+        &__content {
+            width: 45%;
+            top: 15%;
+            & h2 {
+                font-size: 22px;
+            }
+            & p {
+                font-size: 16px;
+            }
+        }
+    }
+    .alchemists {
+        &__content {
+            & p {
+                font-size: 22px;
+            }
+        }
+    }
+    .future {
+        &__content {
+            width: 75%;
+            color: black;
+        }
+    }
+}
+
+@media screen and (max-device-width: $breakpoint-tablet) and (min-device-width: $breakpoint-phonesL) {
+    .wrapper {
+        &__content {
+            width: 450px;
+            & h2 {
+                font-size: 20px;
+                line-height: 1.8;
+            }
+            & p {
+                font-size: 16px;
+            }
+        }
+    }
+    .family {
+        height: 130vh;
+        &__content {
+            width: 90%;
+            margin-left: 10%;
+            & h2 {
+                font-size: 20px;
+            }
+            & p {
+                font-size: 16px;
+            }
+        }
+        &__image {
+            margin-top: -80%;
+
+            width: 35%;
+            height: 50%;
+        }
+    }
+    .values {
+        &__content {
+            @include flexbox(flex, center, flex-start, column);
+            width: 80%;
+            top: 20%;
+            right: 10%;
+
+            & h2 {
+                font-size: 20px;
+            }
+            & p {
+                font-size: 16px;
+            }
+        }
+    }
+    .alchemists {
+        &__content {
+            top: -90%;
+            & p {
+                font-size: 20px;
+                line-height: 2;
+            }
+        }
+    }
+    .future {
+        width: 100%;
+        height: 100vh;
+        &__content {
+            width: 90%;
+            top: -90%;
+            margin-left: 5%;
+            margin-right: -5%;
+            color: black;
+            & h2 {
+                font-size: 20px;
+            }
+            & p {
+                font-size: 16px;
+            }
+        }
+    }
+}
+
+@media screen and (max-device-width: $breakpoint-phonesL) and (min-device-width: $breakpoint-phones){
+    .wrapper {
+        &__content {
+            width: 320px;
+            & h2 {
+                font-size: 18px;
+                line-height: 1.8;
+            }
+            & p {
+                font-size: 16px;
+            }
+        }
+    }
+    .family {
+        height: 190vh;
+        &__content {
+            width: 90%;
+            margin-left: 10%;
+            & h2 {
+                font-size: 20px;
+            }
+            & p {
+                font-size: 16px;
+            }
+        }
+        &__image {
+            margin-top: -190%;
+            width: 35%;
+            height: 50%;
+        }
+    }
+    .values {
+        &__content {
+            @include flexbox(flex, center, flex-start, column);
+            width: 80%;
+            top: 5%;
+            right: 10%;
+
+            & h2 {
+                font-size: 20px;
+            }
+            & p {
+                font-size: 16px;
+            }
+        }
+    }
+    .alchemists {
+        &__content {
+            top: -95%;
+            & p {
+                font-size: 20px;
+                line-height: 1.7;
+            }
+        }
+    }
+    .future {
+        width: 100%;
+        height: 130vh;
+        &__content {
+            width: 90%;
+            top: -95%;
+            margin-left: 5%;
+            margin-right: -5%;
+            color: black;
+            & h2 {
+                font-size: 20px;
+            }
+            & p {
+                font-size: 16px;
+            }
+        }
+    }
+}

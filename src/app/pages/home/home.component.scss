@@ -21,11 +21,13 @@
         position: absolute;
         color: $white-color;
         & h2 {
+            font-family: $font-russo;
             font-size: 30px;
             line-height: 2;
             text-align: end;
         }
         & p {
+            font-family: $font-gothic;
             line-height: 1.5;
             font-size: 20px;
         }
@@ -41,11 +43,13 @@
         @include flexbox(flex, center, flex-start, column);
         width: 40%;
         & h2 {
+            font-family: $font-russo;
             font-size: 24px;
             color: $white-color;
             line-height: 2;
         }
         & p {
+            font-family: $font-gothic;
             color: $white-color;
             font-size: 18px;
             line-height: 1.5;
@@ -56,6 +60,7 @@
         margin-top: 100px;
         @include flexbox(flex, center, center, row);
         & a {
+            font-family: $font-gothic;
             color: $white-color;
             text-decoration: none;
             &:hover {
@@ -95,10 +100,12 @@
             color: $white-color;
             line-height: 1.5;
             & h2 {
+                font-family: $font-russo;
                 font-size: 26px;
                 line-height: 2;
             }
             & p {
+                font-family: $font-gothic;
                 font-size: 18px;
                 text-align: left;
             }
@@ -108,6 +115,7 @@
             width: 60%;
             @include flexbox(flex, flex-end, center, row);
             & a {
+                font-family: $font-gothic;
                 color: $white-color;
                 text-decoration: none;
                 &:hover {
@@ -134,12 +142,14 @@
         position: relative;
         color: $white-color;
         & h2 {
+            font-family: $font-russo;
             padding-top: 20px;
             text-align: center;
             font-size: 28px;
             line-height: 2;
         }
         & p {
+            font-family: $font-gothic;
             text-align: center;
             font-size: 18px;
         }
@@ -160,6 +170,7 @@
         margin-top: -550px;
         position: relative;
         & span {
+            font-family: $font-gothic;
             margin-bottom: 20px;
             @include flexbox(flex, flex-start, flex-start, row);
             color: lightgrey;
@@ -175,6 +186,7 @@
         margin-bottom: 50px;
         margin-left: 35%;
         & p {
+            font-family: $font-gothic;
             color: $white-color;
             font-size: 18px;
         }
@@ -182,6 +194,7 @@
     &__btn {
         margin-left: 42%;
         & a {
+            font-family: $font-russo;
             text-decoration: none;
             font-size: 26px;
             text-align: center;
@@ -255,15 +268,18 @@
         margin-right: -35%;
         color: $white-color;
         & h2 {
+            font-family: $font-russo;
             font-size: 28px;
             line-height: 2;
         }
         & p {
+            font-family: $font-gothic;
             font-size: 18px;
             line-height: 1.5;
         }
     }
     &__right {
+        font-family: $font-gothic;
         position: relative;
         top: -110%;
         width: 10%;
@@ -302,6 +318,7 @@
         background-repeat: no-repeat;
     }
     &__content {
+        font-family: $font-russo;
         width: 30%;
         top: -95%;
         margin-left: 35%;
@@ -326,11 +343,13 @@
         width: 40%;
         margin-left: 12%;
         & h2 {
+            font-family: $font-russo;
             font-size: 24px;
             color: $white-color;
             line-height: 2;
         }
         & p {
+            font-family: $font-gothic;
             color: $white-color;
             font-size: 18px;
             line-height: 1.5;
@@ -381,9 +400,11 @@
             height: 50%;
             @include flexbox(flex, center, center, column);
             & h2 {
+                font-family: $font-russo;
                 font-size: 22px;
             }
             & p {
+                font-family: $font-gothic;
                 font-size: 18px;
                 width: 60%;
             }

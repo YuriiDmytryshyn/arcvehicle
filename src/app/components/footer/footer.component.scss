@@ -19,16 +19,19 @@
         line-height: 1.5;
         margin-bottom: 100px;
         & h2 {
+            font-family: $font-russo;
             width: 65%;
             font-size: 26px;
         }
         & p {
+            font-family: $font-gothic;
             width: 65%;
             font-size: 18px;
         }
     }
     &__form {
         width: 50%;
+        font-family: $font-gothic;
         margin-left: 7%;
         & form .form__group {
             position: relative;
@@ -97,6 +100,7 @@
             width: 140px;
             height: 50px;
             color: $white-color;
+            font-family: $font-russo;
             background-color: inherit;
             border: 2px solid white;
             &:hover {
@@ -136,16 +140,34 @@
             @include flexbox(flex, space-between, center, column);
             width: 20%;
             height: 100%;
+            & h5{
+                font-family: $font-russo;
+            }
+            & span{
+                font-family: $font-gothic
+            }
         }
         .contacts__sales {
             @include flexbox(flex, space-between, center, column);
             width: 20%;
             height: 100%;
+            & h5{
+                font-family: $font-russo;
+            }
+            & span{
+                font-family: $font-gothic
+            }
         }
         .contacts__media {
             @include flexbox(flex, space-between, center, column);
             width: 20%;
             height: 100%;
+            & h5{
+                font-family: $font-russo;
+            }
+            & span{
+                font-family: $font-gothic
+            }
         }
         .contacts__networks {
             @include flexbox(flex, space-around, center, row);
@@ -160,6 +182,7 @@
     }
     &__copyright {
         padding: 2%;
+        font-family: $font-russo;
     }
 }
 
