@@ -14,8 +14,8 @@ export class HomeComponent implements OnInit {
 
   menuActive = 'translate3d(0,0,0)';
   menuStatus = false;
-
   news: Array<INews> = [];
+
 
   constructor(
     private menuService: MenuService,
@@ -39,7 +39,9 @@ export class HomeComponent implements OnInit {
         )
       )
     ).subscribe(data => {
-      this.news = data;
+      this.news = data.sort((a, b) => {
+        return new Date(b.date).getTime() - new Date(a.date).getTime();
+       });
     });
   };
 

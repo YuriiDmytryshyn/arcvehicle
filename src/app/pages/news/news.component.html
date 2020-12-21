@@ -1,1 +1,14 @@
-<p>news works!</p>
+<div class="conteiner" [style.transform]="menuActive">
+    <section class="news" *ngFor="let n of news;let i = index">
+        <div class="news__img" [ngStyle]="{'float': (i % 2 === 0) ? 'left' : 'right'}">
+            <img class="img" [attr.src]="n?.image" alt="x-image">
+        </div>
+        <div class="news__content">
+            <div class="news__content--text">
+                <span>News | <span>{{ n?.date }}</span></span>
+                <h2>{{ n?.title }}</h2>
+                <p>{{ n?.text }}</p>
+            </div>
+        </div>
+    </section>
+</div>

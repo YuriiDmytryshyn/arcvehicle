@@ -1,0 +1,117 @@
+@import "../../../assets/base/mixins";
+@import "../../../assets/base/variables";
+
+.conteiner {
+    overflow: hidden;
+    user-select: none;
+    transition: transform 1s;
+}
+
+.news {
+    margin-top: 3px;
+    box-shadow: 0px 4px 2px 2px black;
+    height: 80vh;
+    width: 100%;
+    &__img {
+        width: 50%;
+        height: 100%;
+        & img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+    }
+    &__content {
+        height: 100%;
+        width: 50%;
+        background-color: $light-black-color;
+        color: $white-color;
+        @include flexbox(flex, center, center, column);
+        &--text {
+            width: 80%;
+            height: 80%;
+            @include flexbox(flex, center, center, column);
+            & h2 {
+                font-family: $font-russo;
+                font-size: 22px;
+                line-height: 2;
+                text-align: center;
+            }
+            & p {
+                font-family: $font-gothic;
+                font-size: 18px;
+                width: 60%;
+                line-height: 1.5;
+            }
+        }
+    }
+}
+
+@media screen and (max-device-width: 992px) and (min-device-width: $breakpoint-tablet) {
+    .news {
+        &__content {
+            &--text {
+                & h2 {
+                    font-size: 20px;
+                    line-height: 1.8;
+                }
+                & p {
+                    font-size: 16px;
+                    width: 80%;
+                }
+            }
+        }
+    }
+}
+
+@media screen and (max-device-width: $breakpoint-tablet) and (min-device-width: $breakpoint-phonesL) {
+    .news {
+        @include flexbox(flex, center, center, column);
+        &__img {
+            width: 100%;
+            height: 50%;
+        }
+        &__content {
+            width: 100%;
+            height: 50%;
+            &--text {
+                & h2 {
+                    font-size: 18px;
+                    line-height: 1.5;
+                }
+                & p {
+                    font-size: 16px;
+                    width: 90%;
+                    line-height: 1.3;
+                }
+            }
+        }
+    }
+}
+
+@media screen and (max-device-width: $breakpoint-phonesL) and (min-device-width: $breakpoint-phones) {
+    .news {
+        min-height: 110vh;
+        @include flexbox(flex, center, center, column);
+        &__img {
+            width: 100%;
+            height: 50%;
+        }
+        &__content {
+            width: 100%;
+            height: 50%;
+            &--text {
+                & h2 {
+                    font-size: 18px;
+                    line-height: 1.5;
+                }
+                & p {
+                    font-size: 16px;
+                    width: 90%;
+                    line-height: 1.3;
+                    text-align: center;
+                }
+            }
+        }
+    }
+}

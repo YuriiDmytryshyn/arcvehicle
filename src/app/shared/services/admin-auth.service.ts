@@ -28,7 +28,6 @@ export class AdminAuthService {
       localStorage.setItem('admin', JSON.stringify((data)));
       response.user.getIdToken().then(
         token => {
-          console.log(token);
           localStorage.setItem('token', token);
           this.router.navigateByUrl('admin');
         }
