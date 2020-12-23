@@ -4,6 +4,7 @@ import { NewsService } from 'src/app/shared/services/news.service';
 import { MenuService } from '../../shared/services/menu.service';
 import { map } from 'rxjs/operators';
 import { INews } from 'src/app/shared/interfaces/news.interface';
+import { AUTO_STYLE } from '@angular/animations';
 
 @Component({
   selector: 'app-home',
@@ -15,6 +16,7 @@ export class HomeComponent implements OnInit {
   menuActive = 'translate3d(0,0,0)';
   menuStatus = false;
   news: Array<INews> = [];
+  overflowY = 'auto';
 
 
   constructor(
@@ -48,8 +50,11 @@ export class HomeComponent implements OnInit {
   isMenuActive(status): void {
     if (status === false) {
       this.menuActive = 'translate3d(0,0,0)';
+      this.overflowY = 'auto';
+
     } else {
       this.menuActive = 'translate3d(-348px,0,0)';
+      this.overflowY = 'hidden';
     }
   }
 

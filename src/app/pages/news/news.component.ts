@@ -14,7 +14,6 @@ export class NewsComponent implements OnInit {
   news: Array<INews> = [];
   menuActive = 'translate3d(0,0,0)';
   menuStatus = false;
-  // float: string = 'right';
 
   constructor(
     private menuService: MenuService,
@@ -28,17 +27,6 @@ export class NewsComponent implements OnInit {
       this.isMenuActive(this.menuStatus);
     });
   }
-
-  // getFloat(): void{
-  //   for (let i = 0; i < this.news.length; i++){
-  //     console.log(i);
-  //     if (i % 2 === 0) {
-  //       this.float = 'right';
-  //     } else {
-  //       this.float = 'left';
-  //     }
-  //   }
-  // }
 
   getNews(): void {
     this.newsService.getAll().snapshotChanges().pipe(

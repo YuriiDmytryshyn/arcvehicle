@@ -1,4 +1,4 @@
-<header class="header" [style.transform]="menuActive">
+<header class="header" [style.transform]="menuActive" [style.overfow-y]="overflowY">
     <div class="header__line"></div>
     <nav class="nav">
         <div class="nav__logo" [routerLink]="[ '/home' ]">
@@ -16,6 +16,7 @@
             <nav class="menu--list">
                 <a [routerLink]="[ '/home' ]"><span>Home</span></a>
                 <a [routerLink]="[ '/vector' ]"><span>THE VECTOR</span></a>
+                <a [routerLink]="[ '/shop' ]"><span>Shop</span></a>
                 <a [routerLink]="[ '/news' ]"><span>News</span></a>
                 <a [routerLink]="[ '/about' ]"><span>About</span></a>
             </nav>

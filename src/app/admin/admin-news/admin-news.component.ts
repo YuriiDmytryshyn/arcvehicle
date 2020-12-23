@@ -19,7 +19,7 @@ export class AdminNewsComponent implements OnInit {
   newsText: string;
   newsAuthor: string;
   newsImage = '';
-  
+
   editStatus = true;
   uploadPercent: Observable<number>;
   upload = false;
@@ -67,13 +67,16 @@ export class AdminNewsComponent implements OnInit {
     }
   };
 
-  deleteAdminNews(news: INews): void {
-    this.newsID = news.id;
+  deleteAdminNews(): void {
     this.newsService.delete(this.newsID.toString())
       .then(() => {
         console.log('The product was updated successfully!');
       })
       .catch(err => console.log(err));
+  };
+
+  deleteNews(news: INews): void {
+    this.newsID = news.id;
   };
 
   editAdminNews(news: INews): void {

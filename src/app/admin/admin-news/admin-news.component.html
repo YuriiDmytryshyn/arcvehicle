@@ -47,8 +47,14 @@
                 <button (click)="editAdminNews(n)" class="btn btn-dark">edit</button>
             </td>
             <td>
-                <button (click)="deleteAdminNews(n)" class="btn btn-dark">delete</button>
+                <button (click)="deleteNews(n)" (click)="openModalDelete(closeTemplate)" class="btn btn-dark">delete</button>
             </td>
         </tr>
     </tbody>
 </table>
+<ng-template #closeTemplate>
+    <div class="modal-body text-center">
+        <button type="button" (click)="modalRef.hide()" class="btn btn-dark mr-1">Dismiss</button>
+        <button type="button" (click)="deleteAdminNews()" (click)="modalRef.hide()" class="btn btn-danger">Delete</button>
+    </div>
+</ng-template>

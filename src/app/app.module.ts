@@ -5,6 +5,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { CarouselModule } from 'ngx-bootstrap/carousel';
 import { ModalModule } from 'ngx-bootstrap/modal';
+import { ProgressbarModule } from 'ngx-bootstrap/progressbar';
 
 import { AngularFireModule } from '@angular/fire';
 import { AngularFirestoreModule } from '@angular/fire/firestore';
@@ -19,11 +20,14 @@ import { HeaderComponent } from './components/header/header.component';
 import { HomeComponent } from './pages/home/home.component';
 import { AboutComponent } from './pages/about/about.component';
 import { VectorComponent } from './pages/vector/vector.component';
+import { ShopComponent } from './pages/shop/shop.component';
 import { NewsComponent } from './pages/news/news.component';
 
 import { AdminComponent } from './admin/admin.component';
 import { AdminNewsComponent } from './admin/admin-news/admin-news.component';
 import { AdminAuthComponent } from './admin-auth/admin-auth.component';
+import { AdminCategoryComponent } from './admin/admin-category/admin-category.component';
+import { AdminProductsComponent } from './admin/admin-products/admin-products.component';
 
 
 
@@ -39,6 +43,9 @@ import { AdminAuthComponent } from './admin-auth/admin-auth.component';
     AdminComponent,
     AdminNewsComponent,
     AdminAuthComponent,
+    ShopComponent,
+    AdminCategoryComponent,
+    AdminProductsComponent,
   ],
   imports: [
     BrowserModule,
@@ -51,6 +58,7 @@ import { AdminAuthComponent } from './admin-auth/admin-auth.component';
     BrowserAnimationsModule,
     CarouselModule.forRoot(),
     ModalModule.forRoot(),
+    ProgressbarModule.forRoot(),
   ],
   providers: [],
   bootstrap: [AppComponent]
