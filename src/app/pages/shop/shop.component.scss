@@ -57,9 +57,16 @@
 }
 
 .card-body {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
     height: 255px;
     background: #fff;
     border-radius: 0 0 25px 25px;
+}
+
+.product-desc{
+    height: 90px;
 }
 
 .product-title {
@@ -70,6 +77,11 @@
     font-weight: bold;
     letter-spacing: 1px;
     text-transform: uppercase;
+}
+
+.characteristics{
+    display: flex;
+    flex-direction: column;
 }
 
 .badge {
@@ -84,9 +96,7 @@
     margin-left: 5px;
 }
 
-
 .product-price {
-    position: absolute;
     background: #11e95b;
     padding: 7px 20px;
     text-align: center;
@@ -95,9 +105,15 @@
     font-weight: 200;
     color: #fff;
     border-radius: 7px;
-    margin-top: 53px;
-    margin-left: -5px;
+    margin-top: 50px;
+    margin-left: -25px;
     box-shadow: -10px 20px 15px -10px rgba(17, 233, 91, 0.3);
+}
+
+.price{
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-end;
 }
 
 .product-price b {

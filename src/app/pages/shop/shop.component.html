@@ -23,14 +23,22 @@
                                     [value]="size">
                             </span>
                         </div>
-                        <div *ngIf="prod.characteristics[0].gender">
-                            <div *ngFor="let g of prod.characteristics"></div>
-                            <span>For :{{ g }}</span>
+                        <div style="font-size: 16px;" *ngIf="prod.characteristics[0].gender">
+                            <span style="background: red;color: white;border-radius: 2px;">For :{{ prod.characteristics[0].gender }}</span>
                         </div>
-
-                        <!-- <span class="product-price">
-                            USD<b>{{ prod.price }}</b>
-                        </span> -->
+                        <div *ngIf="prod.characteristics[0].battery">
+                            <div class="characteristics" *ngFor="let item of prod.characteristics">
+                                <span><b>Battery Capacity: </b>{{ item.battery }} kWh</span>
+                                <span><b>Range: </b>{{ item.range }} miles depending on use</span>
+                                <span><b>Top Speed: </b>{{ item.topSpeed }} mph</span>
+                                <span><b>Weight: </b>{{ item.weight }} lbs</span>
+                            </div>
+                        </div>
+                        <div class="price">
+                            <span class="product-price">
+                                USD<b>{{ prod.price }}</b>
+                            </span>
+                        </div>
                     </div>
                 </div>
             </div>
