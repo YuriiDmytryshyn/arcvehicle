@@ -1,4 +1,39 @@
-<div class="container" [style.transform]="menuActive">
-    <div class="menu"></div>
-    <div class="product"></div>
+<div class="conteiner" [style.transform]="menuActive">
+    <section class="menu__section"></section>
+    <section class="product__section">
+        <div class="container__card" *ngFor="let prod of products">
+            <div class="card">
+                <div class="card-head">
+                    <img [src]="prod.image" alt="prod" class="product-img">
+                </div>
+                <div class="card-body">
+                    <div class="product-desc">
+                        <span class="product-title">
+                            {{ prod.name }}
+                        </span>
+                        <span class="badge">
+                            {{ prod.category.name }}
+                        </span>
+                    </div>
+                    <div class="product-properties">
+                        <div style="display: flex;justify-content: space-around;" *ngIf="prod.size.length">
+                            <span *ngFor="let size of prod.size">
+                                <label style="cursor: pointer;font-size: 16px;" for="size">{{size}}</label>
+                                <input style="cursor: pointer;margin-left: 5px;" type="checkbox" [id]="size"
+                                    [value]="size">
+                            </span>
+                        </div>
+                        <div *ngIf="prod.characteristics[0].gender">
+                            <div *ngFor="let g of prod.characteristics"></div>
+                            <span>For :{{ g }}</span>
+                        </div>
+
+                        <!-- <span class="product-price">
+                            USD<b>{{ prod.price }}</b>
+                        </span> -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 </div>
