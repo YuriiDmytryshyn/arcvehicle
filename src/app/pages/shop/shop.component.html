@@ -1,13 +1,13 @@
 <div class="conteiner" [style.transform]="menuActive">
     <section class="menu__section">
-        <!-- <div *ngFor="let cat of allCategory">
+        <div *ngFor="let cat of allCategory">
             <button class="nav-item" [value]="cat.name" (click)="onCheckCategory($event)">{{ cat.name }}</button>
-        </div> -->
-        <ul class="navbar-nav mr-auto" *ngFor="let cat of allCategory">
+        </div>
+        <!-- <ul class="navbar-nav mr-auto" *ngFor="let cat of allCategory">
             <li class="nav-item">
                 <a class="nav-link" [routerLink]="['menu/', cat.name]">{{ cat.name }}</a>
             </li>
-        </ul>
+        </ul> -->
     </section>
     <section class="product__section">
         <div class="container__card" *ngFor="let prod of products">
