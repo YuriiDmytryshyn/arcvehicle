@@ -6,7 +6,7 @@
     user-select: none;
     transition: transform 1s;
     display: flex;
-    background-color: lightgrey;
+    background-color: $light-black-color;
 }
 
 .menu__section {
@@ -61,7 +61,7 @@
     flex-direction: column;
     justify-content: space-around;
     height: 255px;
-    background: #fff;
+    background: lightgrey;
     border-radius: 0 0 25px 25px;
 }
 

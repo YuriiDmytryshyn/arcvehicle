@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { AngularFirestore, AngularFirestoreCollection } from '@angular/fire/firestore';
+import { AngularFirestore, AngularFirestoreCollection, DocumentChangeAction } from '@angular/fire/firestore';
 import { IProduct } from '../interfaces/product.interface';
 
 @Injectable({
@@ -19,6 +19,11 @@ export class ProductsService {
   getAll(): AngularFirestoreCollection<IProduct> {
     return this.productRef;
   }
+
+  // getCharacteristics(): AngularFirestoreCollection<IProduct>
+
+
+
 
   getAllCategory(categoryName: string): any {
     return this.productRef.ref.where('category.name', '==', categoryName);

@@ -1,5 +1,11 @@
 <div class="conteiner" [style.transform]="menuActive">
-    <section class="menu__section"></section>
+    <section class="menu__section">
+        <ul class="navbar-nav mr-auto" *ngFor="let cat of allCategory">
+            <li class="nav-item">
+                <a class="nav-link" [routerLink]="['shop/', cat.name]">{{ cat.name }}</a>
+            </li>
+        </ul>
+    </section>
     <section class="product__section">
         <div class="container__card" *ngFor="let prod of products">
             <div class="card">

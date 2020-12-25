@@ -18,6 +18,7 @@ const routes: Routes = [
   { path: 'home', component: HomeComponent },
   { path: 'vector', component: VectorComponent },
   { path: 'shop', component: ShopComponent },
+  { path: 'shop/:category', component: ShopComponent },
   { path: 'news', component: NewsComponent },
   { path: 'about', component: AboutComponent },
   { path: 'news', component: NewsComponent },

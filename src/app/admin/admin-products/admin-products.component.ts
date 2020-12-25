@@ -52,6 +52,8 @@ export class AdminProductsComponent implements OnInit {
   topSpeed: string;
   weight: string;
 
+  
+
   constructor(
     private modalService: BsModalService,
     private categoryService: CategoriesService,
@@ -63,6 +65,7 @@ export class AdminProductsComponent implements OnInit {
     this.getCategories();
     this.getProducts();
   }
+
 
   onCheckChange(event): void {
     if (event.target.checked) {
