@@ -20,11 +20,6 @@ export class ProductsService {
     return this.productRef;
   }
 
-  // getCharacteristics(): AngularFirestoreCollection<IProduct>
-
-
-
-
   getAllCategory(categoryName: string): any {
     return this.productRef.ref.where('category.name', '==', categoryName);
   }

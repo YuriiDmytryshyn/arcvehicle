@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { IProduct } from 'src/app/shared/interfaces/product.interface';
+import { ActivatedRoute, Event, NavigationEnd, Router } from '@angular/router';
 import { MenuService } from 'src/app/shared/services/menu.service';
 import { ProductsService } from 'src/app/shared/services/products.service';
 import { map } from 'rxjs/operators';
-import { ActivatedRoute, Event, NavigationEnd, Router } from '@angular/router';
 import { ICategory } from 'src/app/shared/interfaces/category.interface';
 import { CategoriesService } from 'src/app/shared/services/categories.service';
 
@@ -14,7 +14,7 @@ import { CategoriesService } from 'src/app/shared/services/categories.service';
 })
 export class ShopComponent implements OnInit {
 
-  products: Array<IProduct> = [];
+  products: ICategory[] = [];
   allCategory: Array<ICategory> = [];
 
   menuActive = 'translate3d(0,0,0)';
@@ -24,11 +24,13 @@ export class ShopComponent implements OnInit {
     private menuService: MenuService,
     private categoryService: CategoriesService,
     private prodService: ProductsService,
+    private router: Router,
+    private activatedRoute: ActivatedRoute,
   ) {
     this.router.events.subscribe((event: Event) => {
       if (event instanceof NavigationEnd) {
         const category = this.activatedRoute.snapshot.paramMap.get('category');
-        this.getProducts(category);
+        this.getProductsByCategory(category);
       }
     })
    }
@@ -42,6 +44,27 @@ export class ShopComponent implements OnInit {
     });
   }
 
+  // onCheckCategory(event): void {
+  //   // if (event.target.value) {
+  //   //   this.size.push(event.target.value);
+  //   // } else if (event.target.checked === false) {
+  //   //   const value: any = event.target.value;
+  //   //   const index: number = this.size.indexOf(value);
+  //   //   this.size.splice(index, 1);
+  //   // }
+  //   const cat = event.target.value;
+  //   this.prodService.getAll().snapshotChanges().pipe(
+  //     map(changes =>
+  //       changes.map(c =>
+  //         ({ id: c.payload.doc.id, ...c.payload.doc.data() })
+  //       )
+  //     )
+  //   ).subscribe(data => {
+  //     this.products = data.map(el => el.category).filter(el => el.name === cat);
+  //     console.log(this.products);
+  //   });
+  // }
+
   private getCategories(): void {
     this.categoryService.getAll().snapshotChanges().pipe(
       map(changes =>
@@ -52,9 +75,24 @@ export class ShopComponent implements OnInit {
     ).subscribe(data => {
       this.allCategory = data;
     });
-  };
+  }
 
-  getProducts(): void {
+  private getProductsByCategory(category: string): void {
+    this.products = []
+    this.prodService.getAllCategory(category).onSnapshot(
+      snap => {
+        snap.forEach(prod => {
+          const product = {
+            id: prod.id,
+            ...prod.data() as IProduct
+          };
+          this.products.push(product);
+        })
+      }
+    )
+  }
+
+  private getProducts(): void {
     this.prodService.getAll().snapshotChanges().pipe(
       map(changes =>
         changes.map(c =>
@@ -64,7 +102,7 @@ export class ShopComponent implements OnInit {
     ).subscribe(data => {
       this.products = data;
     });
-  };
+  }
 
   isMenuActive(status): void {
     if (status === false) {
