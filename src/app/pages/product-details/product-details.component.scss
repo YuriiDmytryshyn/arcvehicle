@@ -1,0 +1,58 @@
+@import "../../../assets/base/mixins";
+@import "../../../assets/base/variables";
+
+.conteiner {
+    overflow: hidden;
+    user-select: none;
+    transition: transform 1s;
+}
+
+.details {
+    width: 100%;
+    height: 100vh;
+    @include flexbox(flex);
+    &__image {
+        width: 50%;
+        height: 100%;
+        & img {
+            margin-top: 20%;
+            width: 100%;
+            height: 80%;
+            object-fit: cover;
+        }
+    }
+    &__content {
+        background-color: $light-black-color;
+        color: white;
+        width: 50%;
+        height: 100%;
+        @include flexbox(flex, center, center, column);
+        &--button{
+            width: 80%;
+            & button{
+                margin-top: 20px;
+                width: 100%;
+                font-size: 30px;
+                height: 70px;
+                background-color: #80ff00;
+                color: $white-color;
+                outline: none;
+                border: 2px solid $white-color;
+                border-radius: 5px;
+                &:active{
+                    border: 2px solid $white-color;
+                    box-shadow: 0px 0px 1px 1px $white-color;
+                }
+            }
+        }
+        &--text {
+            width: 80%;
+            & h1 {
+                font-family: $font-russo;
+            }
+            & h2 {
+                font-family: $font-gothic;
+            }
+        }
+    }
+}

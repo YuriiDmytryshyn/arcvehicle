@@ -1,0 +1,16 @@
+<div class="conteiner">
+<section class="details">
+    <div class="details__image">
+        <img class="img" [attr.src]="product?.image" alt="x-image">
+    </div>
+    <div class="details__content">
+        <div class="details__content--text">
+            <h1>{{ product?.name }}</h1>
+            <h2>{{ product?.description }}</h2>
+        </div>
+        <div class="details__content--button">
+            <button (click)="location.back()" type="button" class="">Back</button>
+        </div>
+    </div>
+</section>
+</div>

@@ -29,6 +29,7 @@ import { AdminNewsComponent } from './admin/admin-news/admin-news.component';
 import { AdminAuthComponent } from './admin-auth/admin-auth.component';
 import { AdminCategoryComponent } from './admin/admin-category/admin-category.component';
 import { AdminProductsComponent } from './admin/admin-products/admin-products.component';
+import { ProductDetailsComponent } from './pages/product-details/product-details.component';
 
 
 
@@ -47,6 +48,7 @@ import { AdminProductsComponent } from './admin/admin-products/admin-products.co
     ShopComponent,
     AdminCategoryComponent,
     AdminProductsComponent,
+    ProductDetailsComponent,
   ],
   imports: [
     BrowserModule,

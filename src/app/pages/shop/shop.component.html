@@ -1,13 +1,20 @@
 <div class="conteiner" [style.transform]="menuActive">
-    <section class="menu__section">
-        <div *ngFor="let cat of allCategory">
-            <button class="nav-item" [value]="cat.name" (click)="onCheckCategory($event)">{{ cat.name }}</button>
+    <section class="menu">
+        <div class="menu__product">
+            <h2 class="menu__product--title">Product</h2>
+            <button class="menu__product--button" (click)="getProducts()">All Product</button>
         </div>
-        <!-- <ul class="navbar-nav mr-auto" *ngFor="let cat of allCategory">
-            <li class="nav-item">
-                <a class="nav-link" [routerLink]="['menu/', cat.name]">{{ cat.name }}</a>
-            </li>
-        </ul> -->
+        <div class="menu__category">
+            <h2 class="menu__category--title">Category</h2>
+            <div *ngFor="let cat of allCategory">
+                <button class="menu__category--button" [value]="cat.name" (click)="onCheckCategory($event)">{{ cat.name | lowercase }}</button>
+            </div>
+        </div>
+        <div class="menu__gender">
+            <h2 class="menu__gender--title">Gender</h2>
+            <button value="male" class="menu__gender--button" (click)="onCheckGender($event)">male</button>
+            <button value="female" class="menu__gender--button" (click)="onCheckGender($event)">female</button>
+        </div>
     </section>
     <section class="product__section">
         <div class="container__card" *ngFor="let prod of products">
@@ -17,15 +24,15 @@
                 </div>
                 <div class="card-body">
                     <div class="product-desc">
-                        <span class="product-title">
-                            {{ prod.name }}
+                        <span class="product-title" [routerLink]="[prod.id]">
+                            {{ prod?.name }}
                         </span>
                         <span class="badge">
                             {{ prod?.category.name }}
                         </span>
                     </div>
                     <div class="product-properties">
-                        <div style="display: flex;justify-content: space-around;" *ngIf="prod?.size?.length">
+                        <div style="display: flex;justify-content: space-around;" *ngIf="prod.size.length">
                             <span *ngFor="let size of prod?.size">
                                 <label style="cursor: pointer;font-size: 16px;" for="size">{{size}}</label>
                                 <input style="cursor: pointer;margin-left: 5px;" type="checkbox" [id]="size"
@@ -33,9 +40,10 @@
                             </span>
                         </div>
                         <div style="font-size: 16px;" *ngIf="prod.characteristics[0].gender">
-                            <span style="background: red;color: white;border-radius: 2px;">For :{{ prod.characteristics[0].gender }}</span>
+                            <span style="background: red;color: white;border-radius: 2px;">For :{{
+                                prod.characteristics[0].gender }}</span>
                         </div>
-                        <div *ngIf="prod?.characteristics[0]?.battery">
+                        <div *ngIf="prod.characteristics[0].battery">
                             <div class="characteristics" *ngFor="let item of prod.characteristics">
                                 <span><b>Battery Capacity: </b>{{ item.battery }} kWh</span>
                                 <span><b>Range: </b>{{ item.range }} miles depending on use</span>
@@ -45,7 +53,7 @@
                         </div>
                         <div class="price">
                             <span class="product-price">
-                                USD<b>{{ prod.price }}</b>
+                                USD<b>{{ prod?.price }}</b>
                             </span>
                         </div>
                     </div>

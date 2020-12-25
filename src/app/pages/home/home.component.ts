@@ -50,11 +50,8 @@ export class HomeComponent implements OnInit {
   isMenuActive(status): void {
     if (status === false) {
       this.menuActive = 'translate3d(0,0,0)';
-      this.overflowY = 'auto';
-
     } else {
-      this.menuActive = 'translate3d(-348px,0,0)';
-      this.overflowY = 'hidden';
+      this.menuActive = 'translate3d(-350px,0,0)';
     }
   }
 

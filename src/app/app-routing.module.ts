@@ -12,13 +12,14 @@ import { AdminAuthComponent } from './admin-auth/admin-auth.component';
 import { AdminCategoryComponent } from './admin/admin-category/admin-category.component';
 import { AdminProductsComponent } from './admin/admin-products/admin-products.component';
 import { AdminGuard } from './shared/guards/admin.guard';
+import { ProductDetailsComponent } from './pages/product-details/product-details.component';
 
 const routes: Routes = [
   { path: '', pathMatch: 'full', redirectTo: 'home' },
   { path: 'home', component: HomeComponent },
   { path: 'vector', component: VectorComponent },
   { path: 'shop', component: ShopComponent },
-  { path: 'menu/:category', component: ShopComponent },
+  { path: 'shop/:id', component: ProductDetailsComponent },
   { path: 'news', component: NewsComponent },
   { path: 'about', component: AboutComponent },
   { path: 'news', component: NewsComponent },

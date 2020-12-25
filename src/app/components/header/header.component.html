@@ -1,9 +1,8 @@
-<header class="header" [style.transform]="menuActive" [style.overfow-y]="overflowY">
+<header class="header" [style.transform]="menuActive">
     <div class="header__line"></div>
     <nav class="nav">
         <div class="nav__logo" [routerLink]="[ '/home' ]">
-            <img (click)="closeMenu()" class="nav__logo--img" src="assets/images/logo-arc.svg"
-                alt="...">
+            <img (click)="closeMenu()" class="nav__logo--img" src="assets/images/logo-arc.svg" alt="...">
         </div>
         <div class="nav__btn">
             <a href="#" class="nav__btn--hover">RESERVE MY VECTOR</a>
@@ -14,11 +13,11 @@
         <div class="menu" [style.transform]="translateMenu">
             <img (click)="closeMenu()" class="menu--img" src="assets/images/close.svg" alt="menu">
             <nav class="menu--list">
-                <a [routerLink]="[ '/home' ]"><span>Home</span></a>
-                <a [routerLink]="[ '/vector' ]"><span>THE VECTOR</span></a>
-                <a [routerLink]="[ '/shop' ]"><span>Shop</span></a>
-                <a [routerLink]="[ '/news' ]"><span>News</span></a>
-                <a [routerLink]="[ '/about' ]"><span>About</span></a>
+                <a [routerLink]="[ '/home' ]" (click)="closeMenu()"><span>Home</span></a>
+                <a [routerLink]="[ '/vector' ]" (click)="closeMenu()"><span>THE VECTOR</span></a>
+                <a [routerLink]="[ '/shop' ]" (click)="closeMenu()"><span>Shop</span></a>
+                <a [routerLink]="[ '/news' ]" (click)="closeMenu()"><span>News</span></a>
+                <a [routerLink]="[ '/about' ]" (click)="closeMenu()"><span>About</span></a>
             </nav>
         </div>
     </nav>
