@@ -24,12 +24,19 @@ export class UserAuthService {
   signUp(email: string, password: string): void {
     this.auth.createUserWithEmailAndPassword(email, password)
       .then(userResponse => {
-        const user = new Profile(userResponse.user.email);
+        const user = new Profile(userResponse.user.uid, userResponse.user.email);
+        // const user = new Profile{
+        //   email: userResponse.user.email,
+        //   phone: phone,
+        //   region: region,
+        //   comments: comments
+        // };
         this.db.collection('users').add({ ...user })
           .then(collection => {
             collection.get()
               .then(user => {
                 localStorage.setItem('user', JSON.stringify(user.data()));
+                console.log(localStorage.setItem('user', JSON.stringify(user.data())));
                 this.cheackSignIn.next(true);
                 this.router.navigateByUrl('profile');
               })

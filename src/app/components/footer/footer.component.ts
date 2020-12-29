@@ -40,6 +40,7 @@ export class FooterComponent implements OnInit {
 
   private updateLocalUser(): void {
     if (this.phone && this.region) {
+      console.log(this.phone)
       if (localStorage.getItem('user')) {
         let user = JSON.parse(localStorage.getItem('user'));
         const data = {
@@ -65,7 +66,7 @@ export class FooterComponent implements OnInit {
   }
 
   signUpUser(): void {
-    if (this.email && this.password) {
+    if (this.email && this.password && this.phone && this.region && this.comments) {
       this.userAuthServise.signUp(this.email, this.password);
     }
   }

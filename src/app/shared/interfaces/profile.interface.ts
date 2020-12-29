@@ -1,6 +1,7 @@
 import { IOrder } from "./order.interface";
 
 export interface IProfile{
+    id: number | string;
     email: string;
     firstName: string;
     lastName: string;
