@@ -126,8 +126,7 @@
     &--list {
         position: absolute;
         @include flexbox(flex, flex-start, center, column, nowrap);
-        height: 60%;
-        margin-top: 50px;
+        margin-top: 30px;
         min-height: 300px;
         & a {
             background-color: $light-black-color;
@@ -182,6 +181,44 @@
             }
             &:hover span {
                 transform: translateX(0.15em);
+            }
+        }
+    }
+    &__form {
+        &--input {
+            @include flexbox(flex, flex-start, flex-start, column);
+            & input{
+                margin-bottom: 10px;
+                font-family: inherit;
+                width: 100%;
+                border: 0;
+                border-bottom: 2px solid white;
+                outline: 0;
+                font-size: 1.2rem;
+                color: white;
+                padding: 7px 0;
+                background: transparent;
+                transition: border-color 0.2s;
+            }
+            & label {
+                margin: 2px;
+                text-transform: uppercase;
+                font-size: 22px;
+                color: white;
+                font-family: $font-russo;
+            }
+            & button{
+                width: 100px;
+                height: 50px;
+                background-color: inherit;
+                color: $white-color;
+                font-family: $font-russo;
+                font-size: 20px;
+                border: 0.08em solid $white-color;
+                outline: none;
+                &:hover{
+                    box-shadow: 0px 0px 2px 1px $white-color;
+                }
             }
         }
     }

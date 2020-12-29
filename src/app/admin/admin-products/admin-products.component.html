@@ -21,7 +21,7 @@
             </tr>
         </thead>
         <tbody>
-            <tr *ngFor="let products of adminProducts;let i=index">
+            <tr *ngFor="let products of adminProducts | searchProduct:searchProduct;let i=index">
                 <th>{{ i + 1 }}</th>
                 <th>{{ products.category.name }}</th>
                 <th>{{ products.name }}</th>

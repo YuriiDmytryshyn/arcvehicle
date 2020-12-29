@@ -51,7 +51,6 @@ export class AdminProductsComponent implements OnInit {
   range: string;
   topSpeed: string;
   weight: string;
-
   
 
   constructor(

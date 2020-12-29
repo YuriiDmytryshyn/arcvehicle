@@ -1,5 +1,5 @@
 <div class="conteiner" [style.transform]="menuActive">
-    <section class="reserve">
+    <section class="reserve" id="reserve">
         <div class="reserve__content">
             <h2>RESERVE YOUR ARC VECTOR</h2><br>
             <p>Reserve your Arc Vector now - Our first model is limited to 399 units with first customer deliveries
@@ -13,34 +13,34 @@
             <div>
                 <form name="form" class="form">
                     <div class="form__group field">
-                        <input type="input" class="form__field" autocomplete="off" placeholder="Full name" name="name"
-                            id='name' required />
-                        <label for="name" class="form__label">Full name</label>
-                    </div>
-                    <div class="form__group field">
-                        <input type="input" class="form__field" autocomplete="off" placeholder="Email address"
+                        <input [(ngModel)]="email" type="input" class="form__field" autocomplete="off" placeholder="Email address"
                             name="email" id='email' required />
                         <label for="email" class="form__label">Email address</label>
                     </div>
                     <div class="form__group field">
-                        <input type="input" class="form__field" autocomplete="off" placeholder="Phone number"
+                        <input [(ngModel)]="password" type="input" class="form__field" autocomplete="off" placeholder="Password" name="password"
+                            id='password' required />
+                        <label for="password" class="form__label">Password</label>
+                    </div>
+                    <div class="form__group field">
+                        <input [(ngModel)]="phone" type="input" class="form__field" autocomplete="off" placeholder="Phone number"
                             name="number" id='number' required />
                         <label for="number" class="form__label">Phone number</label>
                     </div>
                     <div class="form__group field">
-                        <input type="input" class="form__field" autocomplete="off" placeholder="Region" name="region"
+                        <input [(ngModel)]="region" type="input" class="form__field" autocomplete="off" placeholder="Region" name="region"
                             id='region' required />
                         <label for="region" class="form__label">Region</label>
                     </div>
                     <div class="form__group field">
-                        <textarea name="comments" id="comments" class="form__field" autocomplete="off"
+                        <textarea [(ngModel)]="comments" name="comments" id="comments" class="form__field" autocomplete="off"
                             placeholder="comments"></textarea>
                         <label for="comments" class="form__label">Comments (optional)</label>
                     </div>
                 </form>
             </div>
             <div class="reserve__btn">
-                <button class="reserve__btn--more">LEARN MORE</button>
+                <button (click)="signUpUser()" class="reserve__btn--more">LEARN MORE</button>
             </div>
         </div>
     </section>

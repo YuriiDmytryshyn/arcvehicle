@@ -5,7 +5,7 @@
             <img (click)="closeMenu()" class="nav__logo--img" src="assets/images/logo-arc.svg" alt="...">
         </div>
         <div class="nav__btn">
-            <a href="#" class="nav__btn--hover">RESERVE MY VECTOR</a>
+            <a (click)="scrollToLogin()" class="nav__btn--hover">RESERVE MY VECTOR</a>
         </div>
         <div class="nav__menu" (click)="activeMenu()">
             <img class="nav__menu--img" src="assets/images/menu-button-of-three-horizontal-lines.svg" alt="menu">
@@ -18,6 +18,25 @@
                 <a [routerLink]="[ '/shop' ]" (click)="closeMenu()"><span>Shop</span></a>
                 <a [routerLink]="[ '/news' ]" (click)="closeMenu()"><span>News</span></a>
                 <a [routerLink]="[ '/about' ]" (click)="closeMenu()"><span>About</span></a>
+                <a *ngIf="!StatusSignIn" (click)="signInMenu()"><span>Sign In</span></a>
+                <a *ngIf="!StatusSignIn" (click)="scrollToLogin()" (click)="closeMenu()"><span>Sign
+                        Up</span></a>
+                <div *ngIf="StatusSignIn" style="margin-top: 30px;">
+                    <form name="menu__form" class="form">
+                        <div class="menu__form--input">
+                            <label for="email" class="">Email</label>
+                            <input [(ngModel)]="userEmail" type="input" class="" autocomplete="off" name="email" id='email' required />
+                        </div>
+                        <div class="menu__form--input">
+                            <label for="password" class="">Password</label>
+                            <input [(ngModel)]="userPassword" type="input" class="" autocomplete="off" name="password" id='password' required />
+                        </div>
+                        <div style="display: flex;flex-direction: row;justify-content: space-between;" class="menu__form--input">
+                            <button (click)="signInMenu()">Cancel</button>
+                            <button (click)="singInUser()">Log In</button>
+                        </div>
+                    </form>
+                </div>
             </nav>
         </div>
     </nav>

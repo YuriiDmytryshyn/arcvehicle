@@ -4,6 +4,8 @@ import { FormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AppRoutingModule } from './app-routing.module';
 
+import { SearchCategoryPipe } from './shared/pipes/search-category.pipe';
+import { SearchProductPipe } from './shared/pipes/search-product.pipe';
 
 import { CarouselModule } from 'ngx-bootstrap/carousel';
 import { ModalModule } from 'ngx-bootstrap/modal';
@@ -30,6 +32,7 @@ import { AdminAuthComponent } from './admin-auth/admin-auth.component';
 import { AdminCategoryComponent } from './admin/admin-category/admin-category.component';
 import { AdminProductsComponent } from './admin/admin-products/admin-products.component';
 import { ProductDetailsComponent } from './pages/product-details/product-details.component';
+import { ProfileComponent } from './pages/profile/profile.component';
 
 
 
@@ -49,6 +52,9 @@ import { ProductDetailsComponent } from './pages/product-details/product-details
     AdminCategoryComponent,
     AdminProductsComponent,
     ProductDetailsComponent,
+    SearchCategoryPipe,
+    SearchProductPipe,
+    ProfileComponent,
   ],
   imports: [
     BrowserModule,

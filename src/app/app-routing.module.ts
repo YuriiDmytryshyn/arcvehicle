@@ -13,6 +13,7 @@ import { AdminCategoryComponent } from './admin/admin-category/admin-category.co
 import { AdminProductsComponent } from './admin/admin-products/admin-products.component';
 import { AdminGuard } from './shared/guards/admin.guard';
 import { ProductDetailsComponent } from './pages/product-details/product-details.component';
+import { ProfileComponent } from './pages/profile/profile.component';
 
 const routes: Routes = [
   { path: '', pathMatch: 'full', redirectTo: 'home' },
@@ -23,6 +24,7 @@ const routes: Routes = [
   { path: 'news', component: NewsComponent },
   { path: 'about', component: AboutComponent },
   { path: 'news', component: NewsComponent },
+  { path: 'profile', component: ProfileComponent},
   { path: 'admin-login', component: AdminAuthComponent },
   {
     path: 'admin', component: AdminComponent, canActivate:

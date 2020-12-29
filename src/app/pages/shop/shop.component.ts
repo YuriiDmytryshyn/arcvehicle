@@ -17,8 +17,9 @@ export class ShopComponent implements OnInit {
 
   menuActive = 'translate3d(0,0,0)';
   menuStatus = false;
-  cat: string;
-  gender: string;
+  cat: string = '';
+  gender: string = '';
+  // characteristics: string = '';
 
   constructor(
     private menuService: MenuService,
@@ -45,10 +46,10 @@ export class ShopComponent implements OnInit {
         )
       )
     ).subscribe(data => {
-      // if (this.gender.length === 0 && this.cat.length !== 0) {
+      if (this.gender.length === 0 && this.cat.length !== 0) {
         this.products = data.filter(el => el.category.name === this.cat);
-        console.log(this.products);
-      // }
+        // event.target.style.color = 'red';
+      }
       this.cat = '';
     });
   }
@@ -63,10 +64,9 @@ export class ShopComponent implements OnInit {
         )
       )
     ).subscribe(data => {
-      // if (this.cat.length === 0 && this.gender.length !== 0) {
+      if (this.cat.length === 0 && this.gender.length !== 0) {
         this.products = data.filter(el => el.characteristics[0].gender === this.gender);
-        console.log(this.products);
-      // }
+      }
       this.gender = '';
     });
   }
@@ -83,7 +83,7 @@ export class ShopComponent implements OnInit {
     });
   }
 
-  private getProducts(): void {
+  getProducts(): void {
     this.prodService.getAll().snapshotChanges().pipe(
       map(changes =>
         changes.map(c =>
@@ -92,7 +92,6 @@ export class ShopComponent implements OnInit {
       )
     ).subscribe(data => {
       this.products = data;
-      console.log(this.products);
     });
   }
 

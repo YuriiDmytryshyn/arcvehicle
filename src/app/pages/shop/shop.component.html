@@ -1,5 +1,6 @@
 <div class="conteiner" [style.transform]="menuActive">
     <section class="menu">
+        <div class="menu__filter">FILTER</div>
         <div class="menu__product">
             <h2 class="menu__product--title">Product</h2>
             <button class="menu__product--button" (click)="getProducts()">All Product</button>
@@ -7,7 +8,8 @@
         <div class="menu__category">
             <h2 class="menu__category--title">Category</h2>
             <div *ngFor="let cat of allCategory">
-                <button class="menu__category--button" [value]="cat.name" (click)="onCheckCategory($event)">{{ cat.name | lowercase }}</button>
+                <button class="menu__category--button" [value]="cat.name" (click)="onCheckCategory($event)">{{ cat.name
+                    | lowercase }}</button>
             </div>
         </div>
         <div class="menu__gender">
@@ -20,7 +22,7 @@
         <div class="container__card" *ngFor="let prod of products">
             <div class="card">
                 <div class="card-head">
-                    <img [src]="prod?.image" alt="prod" class="product-img">
+                    <img [src]="prod?.image" [routerLink]="[prod.id]" alt="prod" class="product-img">
                 </div>
                 <div class="card-body">
                     <div class="product-desc">
@@ -40,7 +42,7 @@
                             </span>
                         </div>
                         <div style="font-size: 16px;" *ngIf="prod.characteristics[0].gender">
-                            <span style="background: red;color: white;border-radius: 2px;">For :{{
+                            <span style="background: #ff0000;color: white;border-radius: 2px;">For :{{
                                 prod.characteristics[0].gender }}</span>
                         </div>
                         <div *ngIf="prod.characteristics[0].battery">

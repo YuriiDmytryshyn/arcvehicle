@@ -33,6 +33,10 @@ export class HomeComponent implements OnInit {
     });
   }
 
+  scrollToLogin(): void{
+    document.getElementById('reserve').scrollIntoView({ behavior: "smooth" });
+  }
+
   getNews(): void {
     this.newsService.getAll().snapshotChanges().pipe(
       map(changes =>
