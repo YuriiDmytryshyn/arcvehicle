@@ -5,11 +5,12 @@ export interface IProfile{
     discount: number | string;
     firstName: string;
     lastName: string;
+    image: string;
     phone: string;
     region: string;
     city: string;
     street: string;
     house: string;
-    comments?: string,
+    comments: string;
     orders: Array<IOrder>;
 }

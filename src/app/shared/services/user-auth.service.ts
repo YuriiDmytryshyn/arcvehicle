@@ -4,6 +4,7 @@ import { AngularFirestore, AngularFirestoreCollection } from '@angular/fire/fire
 import { Router } from '@angular/router';
 import { BehaviorSubject } from 'rxjs';
 import { Profile } from '../classes/profile.model';
+import { IProfile } from '../interfaces/profile.interface';
 
 @Injectable({
   providedIn: 'root'
@@ -25,7 +26,6 @@ export class UserAuthService {
   signUp(email: string, password: string, phone: number | string, region: string, comments: string, discount: number | string): void {
     this.auth.createUserWithEmailAndPassword(email, password)
       .then(userResponse => {
-        // const user = new Profile(userResponse.user.email);
         const user ={
           email: userResponse.user.email,
           phone: phone,

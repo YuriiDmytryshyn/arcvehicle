@@ -7,6 +7,7 @@ export class Profile implements IProfile {
         public discount: number | string = '',
         public firstName: string = '',
         public lastName: string = '',
+        public image: string = '',
         public phone: string = '',
         public region: string = '',
         public city: string = '',

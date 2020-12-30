@@ -1,4 +1,8 @@
 {
+  "firestore": {
+    "rules": "firestore.rules",
+    "indexes": "firestore.indexes.json"
+  },
   "hosting": {
     "public": "dist/arcvehicle",
     "ignore": [
@@ -13,16 +17,7 @@
       }
     ]
   },
-  "firestore": {
-    "rules": "firestore.rules",
-    "indexes": "firestore.indexes.json"
-  },
   "storage": {
     "rules": "storage.rules"
-  },
-  "functions": {
-    "predeploy": [
-      "npm --prefix \"$RESOURCE_DIR\" run lint"
-    ]
   }
 }

@@ -1,13 +1,50 @@
 <div class="conteiner">
-    <section class="user">
-        <div class="user__image">
-            <img class="img" [attr.src]="product?.image" alt="x-image">
-        </div>
-        <div class="user__content">
-            <div class="user__content--text">
-                <h1>{{ product?.name }}</h1>
-                <h2>{{ product?.description }}</h2>
-            </div>
-        </div>
-    </section>
+    <div class="line"></div>
+<section class="user">
+    <div class="user__image">
+        <img class="img" [attr.src]="userImage" alt="x-image">
+    </div>
+    <div class="user__content">
+    </div>
+</section>
 </div>
+<ng-template #addTemplate>
+    <div class="add-modal">
+        <div class="modal-header">
+            <h4 class="modal-title pull-left">{{ firstName }} Profile</h4>
+            <button type="button" class="close pull-right" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+        <form class="form">
+            <div class="form-group">
+                <label for="myFirstName">My first name: </label>
+                <input type="text" class="form-control" id="myFirstName">
+            </div>
+            <div class="form-group">
+                <label for="myLastName">My last name: </label>
+                <input type="text" class="form-control" id="myLastName">
+            </div>
+            <div class="form-group">
+                <label for="myCity">My city: </label>
+                <input type="text" class="form-control" id="myCity" >
+            </div>
+            <div class="input-group mb-3">
+                <div class="custom-file">
+                    <input type="file" class="custom-file-input" id="inputGroupFile02" (change)="uploadFile($event)">
+                    <label class="custom-file-label" for="inputGroupFile02"
+                        aria-describedby="inputGroupFileAddon02">Choose file</label>
+                </div>
+            </div>
+            <div class="mb-3">
+                <progressbar class="progress-striped" [striped]="true" [value]="dynamic" type="dark"></progressbar>
+            </div>
+            <div *ngIf="fileUploaded" class="addImg">File uploaded. Now to can add product.</div>
+            <div class="modal-header"></div>
+        </form>
+        <div class="modal-button">
+            <button type="button" class="btn btn-dark mr-1">Close</button>
+            <button type="button" class="btn btn-dark">Save</button>
+        </div>
+    </div>
+</ng-template>
