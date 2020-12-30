@@ -53,10 +53,13 @@
                                 <span><b>Weight: </b>{{ item.weight }} lbs</span>
                             </div>
                         </div>
-                        <div class="price">
-                            <span class="product-price">
-                                USD<b>{{ prod?.price }}</b>
-                            </span>
+                        <div class="price" *ngIf="!ifLogin">
+                            <span class="price--span"><button>BUY</button><b>USD{{ prod?.price }}</b></span>
+                            
+                        </div>
+                        <div class="price__discount" *ngIf="ifLogin">
+                            <span style="text-decoration: line-through;">USD<b>{{ prod?.price }}</b></span>
+                            <span class="price--span"><button>BUY</button><b>USD{{ prod?.price }}</b></span>
                         </div>
                     </div>
                 </div>

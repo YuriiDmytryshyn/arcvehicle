@@ -1,8 +1,9 @@
 import { IOrder } from "./order.interface";
 
 export interface IProfile{
-    id: number | string;
+    // id: number | string;
     email: string;
+    discount: number | string;
     firstName: string;
     lastName: string;
     phone: string;
@@ -10,6 +11,6 @@ export interface IProfile{
     city: string;
     street: string;
     house: string;
-    comments: string,
+    comments?: string,
     orders: Array<IOrder>;
 }

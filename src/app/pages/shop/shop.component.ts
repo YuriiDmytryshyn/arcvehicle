@@ -19,7 +19,8 @@ export class ShopComponent implements OnInit {
   menuStatus = false;
   cat: string = '';
   gender: string = '';
-  // characteristics: string = '';
+  discount: number | string;
+  ifLogin: boolean = false;
 
   constructor(
     private menuService: MenuService,
@@ -28,13 +29,23 @@ export class ShopComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
+    console.log(this.discount);
     this.getProducts();
     this.getCategories();
+    this.updateLocalUser();
     this.menuService.menuStatus.subscribe((menuStatus) => {
       this.menuStatus = menuStatus;
       this.isMenuActive(this.menuStatus);
     });
   }
+
+  private updateLocalUser(): void {
+    if (localStorage.getItem('user')) {
+      let user = JSON.parse(localStorage.getItem('user'));
+      this.discount = user.discount;
+      this.ifLogin = true;
+    }
+  };
 
   onCheckCategory(event): void {
     this.cat = event.target.value;
@@ -48,7 +59,6 @@ export class ShopComponent implements OnInit {
     ).subscribe(data => {
       if (this.gender.length === 0 && this.cat.length !== 0) {
         this.products = data.filter(el => el.category.name === this.cat);
-        // event.target.style.color = 'red';
       }
       this.cat = '';
     });

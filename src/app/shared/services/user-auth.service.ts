@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/auth';
 import { AngularFirestore, AngularFirestoreCollection } from '@angular/fire/firestore';
 import { Router } from '@angular/router';
-import { Subject } from 'rxjs';
+import { BehaviorSubject } from 'rxjs';
 import { Profile } from '../classes/profile.model';
 
 @Injectable({
@@ -11,7 +11,8 @@ import { Profile } from '../classes/profile.model';
 export class UserAuthService {
 
   localStorageUser: any;
-  cheackSignIn: Subject<boolean> = new Subject<boolean>();
+  private cheackSignIn: BehaviorSubject<boolean> = new BehaviorSubject(false);
+  cheackSignInStatus = this.cheackSignIn.asObservable();
   userRef: AngularFirestoreCollection<any> = null;
   private dbPath = '/users';
 
@@ -24,19 +25,19 @@ export class UserAuthService {
   signUp(email: string, password: string): void {
     this.auth.createUserWithEmailAndPassword(email, password)
       .then(userResponse => {
-        const user = new Profile(userResponse.user.uid, userResponse.user.email);
-        // const user = new Profile{
+        const user = new Profile(userResponse.user.email);
+        // const user ={
         //   email: userResponse.user.email,
         //   phone: phone,
         //   region: region,
-        //   comments: comments
+        //   comments: comments,
+        //   discount: discount
         // };
         this.db.collection('users').add({ ...user })
           .then(collection => {
             collection.get()
               .then(user => {
                 localStorage.setItem('user', JSON.stringify(user.data()));
-                console.log(localStorage.setItem('user', JSON.stringify(user.data())));
                 this.cheackSignIn.next(true);
                 this.router.navigateByUrl('profile');
               })

@@ -18,8 +18,10 @@
                 <a [routerLink]="[ '/shop' ]" (click)="closeMenu()"><span>Shop</span></a>
                 <a [routerLink]="[ '/news' ]" (click)="closeMenu()"><span>News</span></a>
                 <a [routerLink]="[ '/about' ]" (click)="closeMenu()"><span>About</span></a>
-                <a *ngIf="!StatusSignIn" (click)="signInMenu()"><span>Sign In</span></a>
-                <a *ngIf="!StatusSignIn" (click)="scrollToLogin()" (click)="closeMenu()"><span>Sign
+                <a [style.display]="IfSign" [routerLink]="[ '/profile' ]" (click)="closeMenu()"><span>Profile</span></a>
+                <a [style.display]="IfSign" (click)="signOutUser()" (click)="closeMenu()"><span>Sign Out</span></a>
+                <a *ngIf="!StatusSignIn" [style.display]="IfNoSign" (click)="signInMenu()"><span>Sign In</span></a>
+                <a *ngIf="!StatusSignIn" [style.display]="IfNoSign" (click)="scrollToLogin()" (click)="closeMenu()"><span>Sign
                         Up</span></a>
                 <div *ngIf="StatusSignIn" style="margin-top: 30px;">
                     <form name="menu__form" class="form">
@@ -33,7 +35,7 @@
                         </div>
                         <div style="display: flex;flex-direction: row;justify-content: space-between;" class="menu__form--input">
                             <button (click)="signInMenu()">Cancel</button>
-                            <button (click)="singInUser()">Log In</button>
+                            <button (click)="singInUser()" (click)="closeMenu()">Log In</button>
                         </div>
                     </form>
                 </div>

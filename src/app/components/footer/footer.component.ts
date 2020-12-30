@@ -12,10 +12,12 @@ export class FooterComponent implements OnInit {
   menuActive = 'translate3d(0,0,0)';
   menuStatus = false;
   currentUser: any = null;
+  discount: number | string;
+  cheackSignIn: boolean;
 
   email: string;
   password: string;
-  phone: string;
+  phone: number | string;
   region: string;
   comments: string;
 
@@ -29,23 +31,28 @@ export class FooterComponent implements OnInit {
       this.menuStatus = menuStatus;
       this.isMenuActive(this.menuStatus);
     });
-    this.checkIfUserLogin();
+    this.randomDiscount();
+    this.userAuthServise.cheackSignInStatus.subscribe((menuStatus) => {
+      this.cheackSignIn = menuStatus;
+      this.checkIfUserLogin(this.cheackSignIn);
+    });
   }
 
-  private checkIfUserLogin(): void {
-    this.userAuthServise.cheackSignIn.subscribe(() => {
+  private checkIfUserLogin(status): void {
+    if (status === true) {
+      console.log(status);
       this.updateLocalUser();
-    })
+     }
   };
 
   private updateLocalUser(): void {
-    if (this.phone && this.region) {
-      console.log(this.phone)
+    if (this.phone && this.region && this.discount && this.comments) {
       if (localStorage.getItem('user')) {
         let user = JSON.parse(localStorage.getItem('user'));
         const data = {
           phone: this.phone,
           region: this.region,
+          discount: this.discount,
         };
         this.userAuthServise.updateUserData(user.id, data).then(
           () => {
@@ -66,9 +73,31 @@ export class FooterComponent implements OnInit {
   }
 
   signUpUser(): void {
-    if (this.email && this.password && this.phone && this.region && this.comments) {
+    this.randomDiscount();
+    if (this.email && this.password) {
       this.userAuthServise.signUp(this.email, this.password);
     }
+    this.resetForm();
+  }
+
+  randomDiscount(): void{
+    this.discount = (Math.random() * 5).toFixed();
+  }
+
+  // signUpUser(): void {
+  //   this.randomDiscount();
+  //   if (this.email && this.password && this.phone && this.region && this.comments && this.discount) {
+  //     this.userAuthServise.signUp(this.email, this.password, this.phone, this.region, this.comments, this.discount);
+  //   }
+  //   this.resetForm();
+  // }
+
+  private resetForm(): void{
+    this.email = '';
+    this.password = '';
+    this.phone = '';
+    this.region = '';
+    this.comments = '';
   }
 
   isMenuActive(status): void {

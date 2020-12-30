@@ -17,16 +17,49 @@ export class HeaderComponent implements OnInit {
 
 
   StatusSignIn: boolean = false;
+  cheackSignIn: boolean;
+  IfNoSign: string = 'block';
+  IfSign: string = 'none';
   userEmail: string;
   userPassword: string;
 
-  
+
   constructor(
     private menuService: MenuService,
     private userAuthServise: UserAuthService,
   ) { }
 
-  ngOnInit(): void { }
+  ngOnInit(): void {
+    this.userAuthServise.cheackSignInStatus.subscribe((menuStatus) => {
+      this.cheackSignIn = menuStatus;
+      this.checkIfUserLogin(this.cheackSignIn);
+    });
+    this.cheackLocalUser();
+  }
+
+  private cheackLocalUser(): void {
+    if (localStorage.getItem('user')) { 
+      this.IfNoSign = 'none';
+      this.IfSign = 'block';
+    }
+  };
+
+  private checkIfUserLogin(status): void {
+    if (status === false) {
+      this.IfNoSign = 'block';
+      this.IfSign = 'none';
+    } else {
+      this.IfNoSign = 'none';
+      this.IfSign = 'block';
+      this.StatusSignIn = !this.StatusSignIn;
+      this.userEmail = '';
+      this.userPassword = '';
+    }
+  };
+
+  signOutUser(): void {
+    this.userAuthServise.signOut();
+  };
 
   singInUser(): void {
     if (this.userEmail && this.userPassword) {
