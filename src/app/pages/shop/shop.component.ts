@@ -29,7 +29,6 @@ export class ShopComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    console.log(this.discount);
     this.getProducts();
     this.getCategories();
     this.updateLocalUser();

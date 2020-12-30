@@ -59,7 +59,7 @@
                         </div>
                         <div class="price__discount" *ngIf="ifLogin">
                             <span style="text-decoration: line-through;">USD<b>{{ prod?.price }}</b></span>
-                            <span class="price--span"><button>BUY</button><b>USD{{ prod?.price }}</b></span>
+                            <span class="price--span"><button>BUY</button><b>USD{{ (prod?.price * (100 - discount)/100).toFixed() }}</b></span>
                         </div>
                     </div>
                 </div>

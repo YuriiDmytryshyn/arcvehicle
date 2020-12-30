@@ -3,7 +3,6 @@ import { IProfile } from "../interfaces/profile.interface";
 
 export class Profile implements IProfile {
     constructor(
-        // public id: number | string = '',
         public email: string = '',
         public discount: number | string = '',
         public firstName: string = '',

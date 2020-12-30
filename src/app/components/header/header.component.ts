@@ -41,17 +41,19 @@ export class HeaderComponent implements OnInit {
     if (localStorage.getItem('user')) { 
       this.IfNoSign = 'none';
       this.IfSign = 'block';
+      this.StatusSignIn = false;
     }
   };
 
   private checkIfUserLogin(status): void {
-    if (status === false) {
+    if (!status) {
       this.IfNoSign = 'block';
       this.IfSign = 'none';
+      this.StatusSignIn = false;
     } else {
       this.IfNoSign = 'none';
       this.IfSign = 'block';
-      this.StatusSignIn = !this.StatusSignIn;
+      this.StatusSignIn = false;
       this.userEmail = '';
       this.userPassword = '';
     }

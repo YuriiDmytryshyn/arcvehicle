@@ -1,1 +1,13 @@
-<h2 style="font-size: 100px;min-height: 100vh;">PROFILE</h2>
+<div class="conteiner">
+    <section class="user">
+        <div class="user__image">
+            <img class="img" [attr.src]="product?.image" alt="x-image">
+        </div>
+        <div class="user__content">
+            <div class="user__content--text">
+                <h1>{{ product?.name }}</h1>
+                <h2>{{ product?.description }}</h2>
+            </div>
+        </div>
+    </section>
+</div>
