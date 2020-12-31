@@ -1,6 +1,5 @@
 import { Component, OnInit, TemplateRef } from '@angular/core';
 import { AngularFireStorage } from '@angular/fire/storage';
-import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
 import { Observable } from 'rxjs';
 import { IOrder } from 'src/app/shared/interfaces/order.interface';
 import { MenuService } from 'src/app/shared/services/menu.service';
@@ -14,29 +13,27 @@ export class ProfileComponent implements OnInit {
 
   menuActive = 'translate3d(0,0,0)';
   menuStatus = false;
-  modalRef: BsModalRef;
   uploadPercent: Observable<number>;
   fileUploaded = false;
   dynamic: number = 0;
-  Status = false;
+  currentUser: any = null;
+  ImageStatys: boolean = false;
 
   email: string;
   discount: number | string;
-  firstName: string = 'Your';
-  lastName: string;
-  image: string;
-  phone: string;
-  region: string;
-  city: string;
-  street: string;
-  house: string;
-  comments: string;
+  firstName: string = 'No data';
+  lastName: string = 'No data';
+  phone: string = 'No data';
+  region: string = 'No data';
+  city: string = 'No data';
+  street: string = 'No data';
+  house: string = 'No data';
+  comments: string = 'No data';
   orders: Array<IOrder> = [];
   userImage = 'assets/images/user-anonim.jpg';
 
   constructor(
     private menuService: MenuService,
-    private modalService: BsModalService,
     private storage: AngularFireStorage,
   ) { }
 
@@ -45,6 +42,41 @@ export class ProfileComponent implements OnInit {
       this.menuStatus = menuStatus;
       this.isMenuActive(this.menuStatus);
     });
+    this.userCredential();
+  }
+
+  private userCredential(): void {
+    this.currentUser = JSON.parse(localStorage.getItem('user'));
+    this.email = this.currentUser.email;
+    this.discount = this.currentUser.discount;
+    if (this.currentUser.firstName) {
+      this.firstName = this.currentUser.firstName;
+    }
+    if (this.currentUser.lastName) {
+      this.lastName = this.currentUser.lastName;
+    }
+    if (this.currentUser.phone) {
+      this.phone = this.currentUser.phone;
+    }
+    if (this.currentUser.region) {
+      this.region = this.currentUser.region;
+    }
+    if (this.currentUser.city) {
+      this.city = this.currentUser.city;
+    }
+    if (this.currentUser.street) {
+      this.street = this.currentUser.street;
+    }
+    if (this.currentUser.house) {
+      this.house = this.currentUser.house;
+    }
+    if (this.currentUser.comments) {
+      this.comments = this.currentUser.comments;
+    }
+    if (this.currentUser.image) {
+      this.userImage = this.currentUser.image;
+      this.ImageStatys = true;
+    }
   }
 
   uploadFile(event): void {
@@ -60,16 +92,12 @@ export class ProfileComponent implements OnInit {
     });
     task.then(image => {
       this.storage.ref(`images/${image.metadata.name}`).getDownloadURL().subscribe(url => {
-        this.Status = true;
         this.userImage = url;
+        this.ImageStatys = true;
         this.fileUploaded = true;
       });
     });
-  };
-
-  openModalAdd(template: TemplateRef<any>) {
-    this.modalRef = this.modalService.show(template);
-  };
+  }
 
   isMenuActive(status): void {
     if (status === false) {

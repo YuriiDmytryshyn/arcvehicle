@@ -11,7 +11,6 @@ export class FooterComponent implements OnInit {
 
   menuActive = 'translate3d(0,0,0)';
   menuStatus = false;
-  currentUser: any = null;
   discount: number | string;
   cheackSignIn: boolean;
 
@@ -20,6 +19,10 @@ export class FooterComponent implements OnInit {
   phone: number | string;
   region: string;
   comments: string;
+
+  regExpEmailAddress = /\S\@\S\w+\.[a-zA-z+]/;
+  emailRegExpColor = 'white';
+  regExpPassword = /^[a-zA-z0-9]{8,15}$/;
 
   constructor(
     private menuService: MenuService,
@@ -31,6 +34,15 @@ export class FooterComponent implements OnInit {
       this.menuStatus = menuStatus;
       this.isMenuActive(this.menuStatus);
     });
+  }
+
+  emailRegExp(): boolean {
+    // return this.regExpEmailAddress.test(this.email);
+    if (this.regExpEmailAddress.test(this.email)) {
+      return true;
+    } else {
+      return false;
+    }
   }
 
   randomDiscount(): void {

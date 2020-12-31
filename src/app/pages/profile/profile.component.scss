@@ -16,6 +16,7 @@
 .user{
     height: 80vh;
     width: 100%;
+    @include flexbox(flex, center, center);
     &__image{
         @include flexbox(flex, center, center);
         width: 40%;
@@ -26,6 +27,42 @@
             height: 80%;
             border-radius: 30%;
             object-fit: cover;
+        }
+    }
+    &__content{
+        padding: 10px;
+        @include flexbox(flex, space-around, center, column);
+        width: 60%;
+        height: 100%;
+        &--form{
+            width: 80%;
+            @include flexbox(flex, space-around, center);
+            & input{
+                width: 100%;
+                border: none;
+                outline: none;
+                font-size: 18px;
+            }
+            & label{
+                width: 50%;
+                font-size: 18px;
+            }
+        }
+        &--update{
+            @include flexbox(flex, center, center);
+            width: 100%;
+            height: 10%;
+            & button{
+                font-size: 20px;
+                font-family: $font-russo;
+                width: 80%;
+                height: 100%;
+                background-color: brown;
+                border: 1px solid brown;
+                border-radius: 10px;
+                color: white;
+                outline: none;
+            }
         }
     }
 }

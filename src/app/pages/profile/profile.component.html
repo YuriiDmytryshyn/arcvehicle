@@ -1,50 +1,47 @@
-<div class="conteiner">
+<div class="conteiner" [style.transform]="menuActive">
     <div class="line"></div>
-<section class="user">
-    <div class="user__image">
-        <img class="img" [attr.src]="userImage" alt="x-image">
-    </div>
-    <div class="user__content">
-    </div>
-</section>
+    <section class="user">
+        <div *ngIf="!ImageStatys" class="user__image">
+            <label for="file-input">
+                <img class="img" [attr.src]="userImage" alt="x-image">
+            </label>
+            <input type="file" id="file-input" (change)="uploadFile($event)">
+        </div>
+        <div *ngIf="ImageStatys" class="user__image">
+            <img class="img" [attr.src]="userImage" alt="x-image">
+        </div>
+        <div class="user__content">
+            <div class="user__content--form">
+                    <label for="firstName">FirstName: </label>
+                    <p><input readonly type="text" name="firstName" id="firstName" [value]="firstName"></p>
+            </div>
+            <div class="user__content--form">
+                <label for="lastName">LastName: </label>
+                <p><input type="text" name="lastName" id="lastName" [value]="lastName"></p>
+            </div>
+            <div class="user__content--form">
+                <label for="phone">Phone: </label>
+                <p><input type="text" name="phone" id="phone" [value]="phone"></p>
+            </div>
+            <div class="user__content--form">
+                <label for="region">Region: </label>
+                <p><input type="text" name="region" id="region" [value]="region"></p>
+            </div>
+            <div class="user__content--form">
+                <label for="city">City: </label>
+                <p><input type="text" name="city" id="city" [value]="city"></p>
+            </div>
+            <div class="user__content--form">
+                <label for="street">Street: </label>
+                <p><input type="text" name="street" id="street" [value]="street"></p>
+            </div>
+            <div class="user__content--form">
+                <label for="house">House: </label>
+                <p><input type="text" name="house" id="house" [value]="house"></p>
+            </div>
+            <div class="user__content--update">
+                <button>Update your Profile</button>
+            </div>
+        </div>
+    </section>
 </div>
-<ng-template #addTemplate>
-    <div class="add-modal">
-        <div class="modal-header">
-            <h4 class="modal-title pull-left">{{ firstName }} Profile</h4>
-            <button type="button" class="close pull-right" aria-label="Close">
-                <span aria-hidden="true">&times;</span>
-            </button>
-        </div>
-        <form class="form">
-            <div class="form-group">
-                <label for="myFirstName">My first name: </label>
-                <input type="text" class="form-control" id="myFirstName">
-            </div>
-            <div class="form-group">
-                <label for="myLastName">My last name: </label>
-                <input type="text" class="form-control" id="myLastName">
-            </div>
-            <div class="form-group">
-                <label for="myCity">My city: </label>
-                <input type="text" class="form-control" id="myCity" >
-            </div>
-            <div class="input-group mb-3">
-                <div class="custom-file">
-                    <input type="file" class="custom-file-input" id="inputGroupFile02" (change)="uploadFile($event)">
-                    <label class="custom-file-label" for="inputGroupFile02"
-                        aria-describedby="inputGroupFileAddon02">Choose file</label>
-                </div>
-            </div>
-            <div class="mb-3">
-                <progressbar class="progress-striped" [striped]="true" [value]="dynamic" type="dark"></progressbar>
-            </div>
-            <div *ngIf="fileUploaded" class="addImg">File uploaded. Now to can add product.</div>
-            <div class="modal-header"></div>
-        </form>
-        <div class="modal-button">
-            <button type="button" class="btn btn-dark mr-1">Close</button>
-            <button type="button" class="btn btn-dark">Save</button>
-        </div>
-    </div>
-</ng-template>
