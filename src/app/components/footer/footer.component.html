@@ -13,11 +13,13 @@
             <div>
                 <form name="form" class="form">
                     <div class="form__group field">
-                        <input (input)="emailRegExp()" [style.border-bottom-color]="emailRegExp() ? 'white' : 'red'" [(ngModel)]="email" type="input" class="form__field" autocomplete="off"
+                        <input (input)="emailRegExp()" [style.border-bottom-color]="emailRegExp() ? 'red' : 'white'"
+                            [(ngModel)]="email" type="input" class="form__field" autocomplete="off"
                             placeholder="Email address" name="email" id='email' required />
                         <label for="email" class="form__label">Email address</label>
                     </div>
-                    <div class="form__group field">
+                    <div (input)="emailRegExp()" [style.border-bottom-color]="emailRegExp() ? 'red' : 'white'"
+                        class="form__group field">
                         <input [(ngModel)]="password" type="input" class="form__field" autocomplete="off"
                             placeholder="Password" name="password" id='password' required />
                         <label for="password" class="form__label">Password</label>

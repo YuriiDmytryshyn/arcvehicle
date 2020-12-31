@@ -16,12 +16,11 @@ export class FooterComponent implements OnInit {
 
   email: string;
   password: string;
-  phone: number | string;
+  phone: string;
   region: string;
   comments: string;
 
   regExpEmailAddress = /\S\@\S\w+\.[a-zA-z+]/;
-  emailRegExpColor = 'white';
   regExpPassword = /^[a-zA-z0-9]{8,15}$/;
 
   constructor(
@@ -37,12 +36,11 @@ export class FooterComponent implements OnInit {
   }
 
   emailRegExp(): boolean {
-    // return this.regExpEmailAddress.test(this.email);
-    if (this.regExpEmailAddress.test(this.email)) {
-      return true;
-    } else {
-      return false;
-    }
+    return this.regExpEmailAddress.test(this.email);
+  }
+
+  passwordRegExp(): boolean{
+    return this.regExpPassword.test(this.password);
   }
 
   randomDiscount(): void {

@@ -23,7 +23,7 @@ export class UserAuthService {
     private router: Router
   ) { this.userRef = this.db.collection(this.dbPath); }
 
-  signUp(email: string, password: string, phone: number | string, region: string, comments: string, discount: number | string): void {
+  signUp(email: string, password: string, phone: string, region: string, comments: string, discount: number | string): void {
     this.auth.createUserWithEmailAndPassword(email, password)
       .then(userResponse => {
         const user ={
