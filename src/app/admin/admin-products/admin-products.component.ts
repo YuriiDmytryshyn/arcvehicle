@@ -34,6 +34,7 @@ export class AdminProductsComponent implements OnInit {
   productDescription: string;
   productPrice: number;
   productImage: string;
+  count: number = 1;
   ifMotorcycle = false;
   ifClothes = false;
   characteristics = [];
@@ -135,6 +136,7 @@ export class AdminProductsComponent implements OnInit {
         1,
         this.currentCategory,
         this.productName,
+        this.count,
         this.productDescription,
         this.productPrice,
         this.productImage,
@@ -161,6 +163,7 @@ export class AdminProductsComponent implements OnInit {
         1,
         this.currentCategory,
         this.productName,
+        this.count,
         this.productDescription,
         this.productPrice,
         this.productImage,

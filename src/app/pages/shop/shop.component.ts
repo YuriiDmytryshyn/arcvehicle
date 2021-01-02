@@ -4,6 +4,8 @@ import { ProductsService } from 'src/app/shared/services/products.service';
 import { map } from 'rxjs/operators';
 import { ICategory } from 'src/app/shared/interfaces/category.interface';
 import { CategoriesService } from 'src/app/shared/services/categories.service';
+import { IProduct } from 'src/app/shared/interfaces/product.interface';
+import { OrderService } from 'src/app/shared/services/order.service';
 
 @Component({
   selector: 'app-shop',
@@ -26,6 +28,7 @@ export class ShopComponent implements OnInit {
     private menuService: MenuService,
     private categoryService: CategoriesService,
     private prodService: ProductsService,
+    private orderService: OrderService,
   ) { }
 
   ngOnInit(): void {
@@ -37,6 +40,11 @@ export class ShopComponent implements OnInit {
       this.isMenuActive(this.menuStatus);
     });
   }
+
+  addToBasket(prod: IProduct): void {
+    this.orderService.addBasket(prod);
+    // prod.count = 1;
+  };
 
   private updateLocalUser(): void {
     if (localStorage.getItem('user')) {
@@ -108,7 +116,7 @@ export class ShopComponent implements OnInit {
     if (status === false) {
       this.menuActive = 'translate3d(0,0,0)';
     } else {
-      this.menuActive = 'translate3d(-350px,0,0)';
+      this.menuActive = 'translate3d(-349px,0,0)';
     }
   }
 

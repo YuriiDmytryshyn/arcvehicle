@@ -33,6 +33,7 @@ import { AdminCategoryComponent } from './admin/admin-category/admin-category.co
 import { AdminProductsComponent } from './admin/admin-products/admin-products.component';
 import { ProductDetailsComponent } from './pages/product-details/product-details.component';
 import { ProfileComponent } from './pages/profile/profile.component';
+import { BasketComponent } from './pages/basket/basket.component';
 
 
 
@@ -55,6 +56,7 @@ import { ProfileComponent } from './pages/profile/profile.component';
     SearchCategoryPipe,
     SearchProductPipe,
     ProfileComponent,
+    BasketComponent,
   ],
   imports: [
     BrowserModule,

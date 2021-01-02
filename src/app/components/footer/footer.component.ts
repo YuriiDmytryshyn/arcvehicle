@@ -13,15 +13,17 @@ export class FooterComponent implements OnInit {
   menuStatus = false;
   discount: number | string;
   cheackSignIn: boolean;
+  IfShow = true;
 
-  email: string;
-  password: string;
-  phone: string;
-  region: string;
-  comments: string;
+  email: string = '';
+  password: string = '';
+  phone: string = '';
+  region: string = '';
+  comments: string = '';
 
   regExpEmailAddress = /\S\@\S\w+\.[a-zA-z+]/;
   regExpPassword = /^[a-zA-z0-9]{8,15}$/;
+  regExpRegion = /\w\D/;
 
   constructor(
     private menuService: MenuService,
@@ -33,14 +35,46 @@ export class FooterComponent implements OnInit {
       this.menuStatus = menuStatus;
       this.isMenuActive(this.menuStatus);
     });
+    this.userAuthServise.cheackSignInStatus.subscribe((menuStatus) => {
+      this.cheackSignIn = menuStatus;
+      this.checkIfUserLogin(this.cheackSignIn);
+    });
   }
+
+  private checkIfUserLogin(status): void {
+    if (!status) {
+      this.IfShow = true;
+    } else {
+      this.IfShow = false;
+    }
+  };
 
   emailRegExp(): boolean {
     return this.regExpEmailAddress.test(this.email);
   }
 
-  passwordRegExp(): boolean{
+  passwordRegExp(): boolean {
     return this.regExpPassword.test(this.password);
+  }
+
+  phoneRegExp(): boolean {
+    if (this.phone.length >= 10) {
+      return true;
+    } else {
+      return false;
+    }
+  }
+
+  regionRegExp(): boolean {
+    return this.regExpRegion.test(this.region);
+  }
+
+  commentsRegExp(): boolean {
+    if (this.comments.length >= 2) {
+      return true;
+    } else {
+      return false;
+    }
   }
 
   randomDiscount(): void {
@@ -67,7 +101,7 @@ export class FooterComponent implements OnInit {
     if (status === false) {
       this.menuActive = 'translate3d(0,0,0)';
     } else {
-      this.menuActive = 'translate3d(-350px,0,0)';
+      this.menuActive = 'translate3d(-349px,0,0)';
     }
   }
 

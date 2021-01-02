@@ -3,6 +3,7 @@ import { AngularFireStorage } from '@angular/fire/storage';
 import { Observable } from 'rxjs';
 import { IOrder } from 'src/app/shared/interfaces/order.interface';
 import { MenuService } from 'src/app/shared/services/menu.service';
+import { UserAuthService } from 'src/app/shared/services/user-auth.service';
 
 @Component({
   selector: 'app-profile',
@@ -16,9 +17,12 @@ export class ProfileComponent implements OnInit {
   uploadPercent: Observable<number>;
   fileUploaded = false;
   dynamic: number = 0;
-  currentUser: any = null;
-  ImageStatys: boolean = false;
+  UpdateStatus: boolean = false;
+  ReadonlyStatus: boolean = true;
+  SaveStatus: boolean = false;
 
+
+  currentUser: any = null;
   email: string;
   discount: number | string;
   firstName: string = 'No data';
@@ -35,6 +39,7 @@ export class ProfileComponent implements OnInit {
   constructor(
     private menuService: MenuService,
     private storage: AngularFireStorage,
+    private userAuthServise: UserAuthService,
   ) { }
 
   ngOnInit(): void {
@@ -43,6 +48,44 @@ export class ProfileComponent implements OnInit {
       this.isMenuActive(this.menuStatus);
     });
     this.userCredential();
+  }
+
+  SaveContentProfile(): void {
+    if (localStorage.getItem('user')) {
+      let user = JSON.parse(localStorage.getItem('user'));
+      const data = {
+        firstName: this.firstName,
+        lastName: this.lastName,
+        phone: this.phone,
+        region: this.region,
+        city: this.city,
+        street: this.street,
+        house: this.house,
+        image: this.userImage
+      };
+      this.userAuthServise.updateUserData(user.id, data).then(
+        () => {
+          this.updateLocal(data)
+        }
+      )
+    }
+    this.UpdateStatus = false;
+    this.ReadonlyStatus = true;
+    this.SaveStatus = false;
+  }
+
+  private updateLocal(data): void {
+    const local = {
+      ...this.currentUser,
+      ...data
+    };
+    localStorage.setItem('user', JSON.stringify(local))
+  }
+
+  UpdateContentProfile(): void {
+    this.UpdateStatus = true;
+    this.ReadonlyStatus = false;
+    this.SaveStatus = true;
   }
 
   private userCredential(): void {
@@ -75,7 +118,6 @@ export class ProfileComponent implements OnInit {
     }
     if (this.currentUser.image) {
       this.userImage = this.currentUser.image;
-      this.ImageStatys = true;
     }
   }
 
@@ -93,7 +135,6 @@ export class ProfileComponent implements OnInit {
     task.then(image => {
       this.storage.ref(`images/${image.metadata.name}`).getDownloadURL().subscribe(url => {
         this.userImage = url;
-        this.ImageStatys = true;
         this.fileUploaded = true;
       });
     });
@@ -103,7 +144,7 @@ export class ProfileComponent implements OnInit {
     if (status === false) {
       this.menuActive = 'translate3d(0,0,0)';
     } else {
-      this.menuActive = 'translate3d(-350px,0,0)';
+      this.menuActive = 'translate3d(-349px,0,0)';
     }
   }
 

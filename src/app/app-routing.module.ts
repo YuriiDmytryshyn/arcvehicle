@@ -14,6 +14,7 @@ import { AdminProductsComponent } from './admin/admin-products/admin-products.co
 import { AdminGuard } from './shared/guards/admin.guard';
 import { ProductDetailsComponent } from './pages/product-details/product-details.component';
 import { ProfileComponent } from './pages/profile/profile.component';
+import { BasketComponent } from './pages/basket/basket.component';
 
 const routes: Routes = [
   { path: '', pathMatch: 'full', redirectTo: 'home' },
@@ -21,6 +22,7 @@ const routes: Routes = [
   { path: 'vector', component: VectorComponent },
   { path: 'shop', component: ShopComponent },
   { path: 'shop/:id', component: ProductDetailsComponent },
+  { path: 'basket', component: BasketComponent},
   { path: 'news', component: NewsComponent },
   { path: 'about', component: AboutComponent },
   { path: 'news', component: NewsComponent },

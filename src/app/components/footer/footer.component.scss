@@ -8,8 +8,9 @@
 }
 
 .reserve {
+    padding-top: 10vh;
     width: 100%;
-    height: 80vh;
+    height: 90vh;
     @include flexbox(flex, space-between, center, row);
     background-color: #b2361d;
     &__content {

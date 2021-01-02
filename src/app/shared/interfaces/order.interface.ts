@@ -5,7 +5,10 @@ export interface IOrder {
     firstName: string;
     lastName: string;
     phone: string;
+    region: string;
     city: string;
+    street: string;
+    house: string;
     totalPrice: number;
     comments: string;
     date: Date;

@@ -16,6 +16,7 @@
                 <a [routerLink]="[ '/home' ]" (click)="closeMenu()"><span>Home</span></a>
                 <a [routerLink]="[ '/vector' ]" (click)="closeMenu()"><span>THE VECTOR</span></a>
                 <a [routerLink]="[ '/shop' ]" (click)="closeMenu()"><span>Shop</span></a>
+                <a *ngIf="length" [routerLink]="[ '/basket' ]" (click)="closeMenu()"><span>In the basket {{ length }}</span></a>
                 <a [routerLink]="[ '/news' ]" (click)="closeMenu()"><span>News</span></a>
                 <a [routerLink]="[ '/about' ]" (click)="closeMenu()"><span>About</span></a>
                 <a [style.display]="IfSign" [routerLink]="[ '/profile' ]" (click)="closeMenu()"><span>Profile</span></a>

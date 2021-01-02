@@ -8,6 +8,7 @@ export class Product implements IProduct {
         public id: number | string,
         public category: ICategory,
         public name: string,
+        public count: number,
         public description: string,
         public price: number,
         public image: string,

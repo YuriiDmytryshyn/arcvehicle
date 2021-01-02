@@ -1,46 +1,60 @@
 <div class="conteiner" [style.transform]="menuActive">
     <div class="line"></div>
     <section class="user">
-        <div *ngIf="!ImageStatys" class="user__image">
-            <label for="file-input">
-                <img class="img" [attr.src]="userImage" alt="x-image">
-            </label>
-            <input type="file" id="file-input" (change)="uploadFile($event)">
-        </div>
-        <div *ngIf="ImageStatys" class="user__image">
+        <div class="user__image">
             <img class="img" [attr.src]="userImage" alt="x-image">
         </div>
         <div class="user__content">
             <div class="user__content--form">
-                    <label for="firstName">FirstName: </label>
-                    <p><input readonly type="text" name="firstName" id="firstName" [value]="firstName"></p>
+                <label for="firstName">FirstName: </label>
+                <p><input [readonly]="ReadonlyStatus" [style.border]="SaveStatus ? '2px solid red' : 'none'" type="text" [(ngModel)]="firstName" name="firstName"
+                        id="firstName" [value]="firstName"></p>
             </div>
             <div class="user__content--form">
                 <label for="lastName">LastName: </label>
-                <p><input type="text" name="lastName" id="lastName" [value]="lastName"></p>
+                <p><input [readonly]="ReadonlyStatus" [style.border]="SaveStatus ? '2px solid red' : 'none'" type="text" [(ngModel)]="lastName" name="lastName" id="lastName"
+                        [value]="lastName"></p>
+            </div>
+            <div class="user__content--form">
+                <label for="lastName">Discount: </label>
+                <p><input readonly type="text" name="discount" id="discount" [value]="discount + '%'"></p>
             </div>
             <div class="user__content--form">
                 <label for="phone">Phone: </label>
-                <p><input type="text" name="phone" id="phone" [value]="phone"></p>
+                <p><input [readonly]="ReadonlyStatus" [style.border]="SaveStatus ? '2px solid red' : 'none'" type="text" [(ngModel)]="phone" name="phone" id="phone"
+                        [value]="phone"></p>
             </div>
             <div class="user__content--form">
                 <label for="region">Region: </label>
-                <p><input type="text" name="region" id="region" [value]="region"></p>
+                <p><input [readonly]="ReadonlyStatus" [style.border]="SaveStatus ? '2px solid red' : 'none'" type="text" [(ngModel)]="region" name="region" id="region"
+                        [value]="region"></p>
             </div>
             <div class="user__content--form">
                 <label for="city">City: </label>
-                <p><input type="text" name="city" id="city" [value]="city"></p>
+                <p><input [readonly]="ReadonlyStatus" [style.border]="SaveStatus ? '2px solid red' : 'none'" type="text" [(ngModel)]="city" name="city" id="city"
+                        [value]="city"></p>
             </div>
             <div class="user__content--form">
                 <label for="street">Street: </label>
-                <p><input type="text" name="street" id="street" [value]="street"></p>
+                <p><input [readonly]="ReadonlyStatus" [style.border]="SaveStatus ? '2px solid red' : 'none'" type="text" [(ngModel)]="street" name="street" id="street"
+                        [value]="street"></p>
             </div>
             <div class="user__content--form">
                 <label for="house">House: </label>
-                <p><input type="text" name="house" id="house" [value]="house"></p>
+                <p><input [readonly]="ReadonlyStatus" [style.border]="SaveStatus ? '2px solid red' : 'none'" type="text" [(ngModel)]="house" name="house" id="house"
+                        [value]="house"></p>
             </div>
-            <div class="user__content--update">
-                <button>Update your Profile</button>
+            <div *ngIf="UpdateStatus" class="user__content--form">
+                <label for="file-input">
+                    <img class="img" style="height: 30px;width: 30px;" [attr.src]="userImage" alt="x-image">
+                </label>
+                <input type="file" id="file-input" (change)="uploadFile($event)">
+            </div>
+            <div *ngIf="!SaveStatus" class="user__content--update">
+                <button (click)="UpdateContentProfile()">Update your Profile</button>
+            </div>
+            <div *ngIf="SaveStatus" class="user__content--save">
+                <button (click)="SaveContentProfile()">Save your Profile</button>
             </div>
         </div>
     </section>
