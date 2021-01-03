@@ -56,7 +56,6 @@ export class ShopComponent implements OnInit {
 
   onCheckCategory(event): void {
     this.cat = event.target.value;
-    console.log(this.cat);
     this.prodService.getAll().snapshotChanges().pipe(
       map(changes =>
         changes.map(c =>

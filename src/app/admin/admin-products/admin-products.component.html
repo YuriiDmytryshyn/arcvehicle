@@ -27,7 +27,7 @@
                 <th>{{ products.name }}</th>
                 <th>{{ products.description }}</th>
                 <th>{{ products.price }}</th>
-                <th><img class="table__img" [attr.src]="products.image" alt="x-image"></th>
+                <th><img class="table__img" [attr.src]="products?.image" alt="x-image"></th>
                 <td>
                     <button class="btn btn-dark" (click)="editProduct(products)"
                         (click)="openModalAdd(addTemplate)">edit</button>

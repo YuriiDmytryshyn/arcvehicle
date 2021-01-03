@@ -1,1 +1,38 @@
-<p style="font-size: 200px;">basket works!</p>
+<div class="conteiner" [style.transform]="menuActive">
+    <div class="title">Make order</div>
+    <section class="table">
+        <div class="table__tr thead">
+            <div class="td"></div>
+            <div class="td">Product</div>
+            <div class="td">Price</div>
+            <div class="td" style="display: flex;justify-content: center;">Amount</div>
+            <div class="td">Total price</div>
+        </div>
+        <div class="table__tr body" *ngFor="let prod of basket">
+            <div class="td"><img (click)="closeModal(closeTemplate)" (click)="indexProduct(prod)"
+                    class="delete__product" src="assets/images/close.svg" alt="delete__product"></div>
+            <div class="td"><img class="table__image" [attr.src]="prod?.image" [alt]="prod.name"></div>
+            <div class="td">{{ prod.price }}$</div>
+            <div class="td" style="display: flex;justify-content: center;">
+                <span class="less__product" (click)="prodCount(prod, false)">-</span>
+                <div class="total">{{ prod.count }}</div>
+                <span class="more__product" (click)="prodCount(prod, true)">+</span>
+            </div>
+            <div class="td">{{ prod.price * prod.count }}$</div>
+        </div>
+        <div *ngIf="IfShow" class="table__tr footer">
+            <div class="footer__td">Register and get a discount from 1% to 5%</div>
+            <div class="footer__td">{{ totalPrice }}$</div>
+        </div>
+        <div *ngIf="!IfShow" class="table__tr footer">
+            <div class="footer__td">{{ firstName }}  {{ lastName }} your discount {{ discount }} % price without discount {{ totalPrice }}</div>
+            <div class="footer__td">{{ (totalPrice * (100 - discount)/100).toFixed() }}$</div>
+        </div>
+    </section>
+</div>
+<ng-template #closeTemplate>
+    <div class="modal-body text-center">
+        <button type="button" (click)="modalRef.hide()" class="btn btn-dark mr-1">Dismiss</button>
+        <button type="button" (click)="deleteProduct()" (click)="modalRef.hide()" class="btn btn-danger">Delete</button>
+    </div>
+</ng-template>

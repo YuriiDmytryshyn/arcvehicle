@@ -1,0 +1,107 @@
+@import "../../../assets/base/mixins";
+@import "../../../assets/base/variables";
+
+.conteiner {
+    padding-top: 20vh;
+    background-color: $light-black-color;
+    overflow: hidden;
+    user-select: none;
+    transition: transform 1s;
+}
+
+.title {
+    font-size: 70px;
+    text-align: center;
+    color: $white-color;
+    font-family: $font-russo;
+}
+
+.table__image {
+    width: 50px;
+    height: 50px;
+}
+
+.delete__product {
+    height: 30px;
+    width: 30px;
+    border-radius: 50%;
+    cursor: pointer;
+    &:hover {
+        transition: transform 0.5s;
+        transform: rotate(90deg);
+        box-shadow: 0 0 1px 3px rgba(#8a3b58, 0.4), 0 0 1px 6px rgba(#8a3b58, 0.1), 0 0 1px 9px rgba(#8a3b58, 0.1);
+    }
+}
+
+.less__product {
+    width: 20px;
+    height: 20px;
+    margin-right: 5px;
+    cursor: pointer;
+}
+
+.more__product {
+    width: 20px;
+    height: 20px;
+    margin-left: 5px;
+    cursor: pointer;
+}
+
+.total {
+    width: 20px;
+    height: 20px;
+    font-family: $font-gothic;
+}
+
+.table {
+    width: 80%;
+    padding: 20px;
+    margin: 35px auto;
+    background-color: $white-color;
+    border-radius: 10px;
+    font-size: 18px;
+    font-family: $font-gothic;
+    @include flexbox(flex, center, center, column);
+    &__tr {
+        width: 100%;
+        height: 8vh;
+        @include flexbox(flex, flex-start, center);
+        & .td:nth-child(1) {
+            width: 10%;
+        }
+        & .td:nth-child(2) {
+            width: 40%;
+        }
+        & .td:nth-child(3) {
+            width: 15%;
+        }
+        & .td:nth-child(4) {
+            width: 20%;
+        }
+        & .td:nth-child(5) {
+            display: flex;
+            justify-content: center;
+            width: 15%;
+        }
+    }
+    & .thead {
+        font-size: 20px;
+        font-family: $font-russo;
+    }
+    & .body {
+        @include flexbox(flex, flex-start, center);
+    }
+    & .footer__td:nth-child(1){
+        @include flexbox(flex, flex-end, center);
+        font-family: $font-russo;
+        color: red;
+        font-size: 20px;
+        width: 80%;
+    }
+    & .footer__td:nth-child(2){
+        @include flexbox(flex, center, center);
+        font-family: $font-russo;
+        font-size: 24px;
+        width: 20%;
+    }
+}

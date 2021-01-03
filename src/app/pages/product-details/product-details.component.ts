@@ -3,6 +3,7 @@ import { ActivatedRoute } from '@angular/router';
 import { Location } from '@angular/common';
 import { ProductsService } from 'src/app/shared/services/products.service';
 import { IProduct } from 'src/app/shared/interfaces/product.interface';
+import { MenuService } from 'src/app/shared/services/menu.service';
 
 @Component({
   selector: 'app-product-details',
@@ -12,8 +13,11 @@ import { IProduct } from 'src/app/shared/interfaces/product.interface';
 export class ProductDetailsComponent implements OnInit {
 
   product: IProduct;
+  menuActive = 'translate3d(0,0,0)';
+  menuStatus = false;
 
   constructor(
+    private menuService: MenuService,
     private activatedRoute: ActivatedRoute,
     private prodService: ProductsService,
     public location: Location
@@ -21,6 +25,10 @@ export class ProductDetailsComponent implements OnInit {
 
   ngOnInit(): void {
     this.getProd();
+    this.menuService.menuStatus.subscribe((menuStatus) => {
+      this.menuStatus = menuStatus;
+      this.isMenuActive(this.menuStatus);
+    });
   }
 
   private getProd(): void {
@@ -30,5 +38,13 @@ export class ProductDetailsComponent implements OnInit {
         this.product = data.data();
       })
   };
+
+  isMenuActive(status): void {
+    if (status === false) {
+      this.menuActive = 'translate3d(0,0,0)';
+    } else {
+      this.menuActive = 'translate3d(-349px,0,0)';
+    }
+  }
 
 }
