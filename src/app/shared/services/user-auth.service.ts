@@ -4,7 +4,6 @@ import { AngularFirestore, AngularFirestoreCollection } from '@angular/fire/fire
 import { Router } from '@angular/router';
 import { Subject } from 'rxjs';
 import { Profile } from '../classes/profile.model';
-import { IOrder } from '../interfaces/order.interface';
 
 @Injectable({
   providedIn: 'root'
@@ -25,13 +24,7 @@ export class UserAuthService {
   signUp(email: string, password: string, phone: string, region: string, comments: string, discount: number | string): void {
     this.auth.createUserWithEmailAndPassword(email, password)
       .then(userResponse => {
-        const user = {
-          email: userResponse.user.email,
-          phone: phone,
-          region: region,
-          comments: comments,
-          discount: discount
-        };
+        const user = new Profile(userResponse.user.email, phone, region, comments, discount);
         this.db.collection('users').add({ ...user })
           .then(collection => {
             collection.get()
