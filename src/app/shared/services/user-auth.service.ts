@@ -2,9 +2,9 @@ import { Injectable } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/auth';
 import { AngularFirestore, AngularFirestoreCollection } from '@angular/fire/firestore';
 import { Router } from '@angular/router';
-import { BehaviorSubject } from 'rxjs';
+import { Subject } from 'rxjs';
 import { Profile } from '../classes/profile.model';
-import { IProfile } from '../interfaces/profile.interface';
+import { IOrder } from '../interfaces/order.interface';
 
 @Injectable({
   providedIn: 'root'
@@ -12,8 +12,7 @@ import { IProfile } from '../interfaces/profile.interface';
 export class UserAuthService {
 
   localStorageUser: any;
-  private cheackSignIn: BehaviorSubject<boolean> = new BehaviorSubject(false);
-  cheackSignInStatus = this.cheackSignIn.asObservable();
+  cheackSignIn: Subject<boolean> = new Subject<boolean>();
   userRef: AngularFirestoreCollection<any> = null;
   private dbPath = '/users';
 
@@ -26,7 +25,7 @@ export class UserAuthService {
   signUp(email: string, password: string, phone: string, region: string, comments: string, discount: number | string): void {
     this.auth.createUserWithEmailAndPassword(email, password)
       .then(userResponse => {
-        const user ={
+        const user = {
           email: userResponse.user.email,
           phone: phone,
           region: region,

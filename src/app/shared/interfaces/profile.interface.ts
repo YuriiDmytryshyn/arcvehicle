@@ -1,6 +1,6 @@
 import { IOrder } from "./order.interface";
 
-export interface IProfile{
+export interface IProfile {
     email: string;
     discount: number | string;
     firstName: string;

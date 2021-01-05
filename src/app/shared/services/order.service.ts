@@ -10,15 +10,14 @@ import { IProduct } from '../interfaces/product.interface';
 export class OrderService {
 
   basket: Subject<Array<IProduct>> = new Subject<Array<IProduct>>();
-  private dbPath = '/orders';
+  private dbPathOrders = '/orders';
   ordersRef: AngularFirestoreCollection<IOrder> = null;
 
   constructor(
     private db: AngularFirestore
   ) {
-    this.ordersRef = this.db.collection(this.dbPath);
+    this.ordersRef = this.db.collection(this.dbPathOrders);
   }
-
 
   addBasket(product: IProduct): void {
     let localProducts: Array<IProduct> = [];

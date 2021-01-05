@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { IOrder } from 'src/app/shared/interfaces/order.interface';
 import { MenuService } from 'src/app/shared/services/menu.service';
 import { UserAuthService } from 'src/app/shared/services/user-auth.service';
 
@@ -31,22 +32,26 @@ export class FooterComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
+    this.cheackLocalUser();
+    this.checkIfUserLogin();
     this.menuService.menuStatus.subscribe((menuStatus) => {
       this.menuStatus = menuStatus;
       this.isMenuActive(this.menuStatus);
     });
-    this.userAuthServise.cheackSignInStatus.subscribe((menuStatus) => {
-      this.cheackSignIn = menuStatus;
-      this.checkIfUserLogin(this.cheackSignIn);
-    });
   }
 
-  private checkIfUserLogin(status): void {
-    if (!status) {
-      this.IfShow = true;
-    } else {
+  private cheackLocalUser(): void {
+    if (localStorage.getItem('user')) {
       this.IfShow = false;
+    } else {
+      this.IfShow = true;
     }
+  };
+
+  private checkIfUserLogin(): void {
+    this.userAuthServise.cheackSignIn.subscribe(() => {
+      this.cheackLocalUser();
+    })
   };
 
   emailRegExp(): boolean {

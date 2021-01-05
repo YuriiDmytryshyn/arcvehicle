@@ -21,7 +21,6 @@ export class HeaderComponent implements OnInit {
   menuActive = 'translate3d(0,0,0)';
 
   StatusSignIn: boolean = false;
-  cheackSignIn: boolean;
   IfNoSign: string = 'block';
   IfSign: string = 'none';
   userEmail: string;
@@ -38,11 +37,7 @@ export class HeaderComponent implements OnInit {
     this.getLocalProducts();
     this.cheackLocalUser();
     this.checkMyBasket();
-    this.userAuthServise.cheackSignInStatus.subscribe((menuStatus) => {
-      this.cheackSignIn = menuStatus;
-      this.checkIfUserLogin(this.cheackSignIn);
-    });
-
+    this.checkIfUserLogin();
   }
 
   private checkMyBasket(): void {
@@ -62,7 +57,7 @@ export class HeaderComponent implements OnInit {
   };
 
   private getTotalLength(products: Array<IProduct>): number {
-    return products.length;
+    return products.reduce((total, prod) => total + prod.count, 0);
   };
 
   private cheackLocalUser(): void {
@@ -70,21 +65,17 @@ export class HeaderComponent implements OnInit {
       this.IfNoSign = 'none';
       this.IfSign = 'block';
       this.StatusSignIn = false;
-    }
-  };
-
-  private checkIfUserLogin(status): void {
-    if (!status) {
+    } else {
       this.IfNoSign = 'block';
       this.IfSign = 'none';
       this.StatusSignIn = false;
-    } else {
-      this.IfNoSign = 'none';
-      this.IfSign = 'block';
-      this.StatusSignIn = false;
-      this.userEmail = '';
-      this.userPassword = '';
     }
+  };
+
+  private checkIfUserLogin(): void {
+    this.userAuthServise.cheackSignIn.subscribe(() => {
+      this.cheackLocalUser();
+    })
   };
 
   signOutUser(): void {
