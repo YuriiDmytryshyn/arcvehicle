@@ -7,6 +7,9 @@ import { AppRoutingModule } from './app-routing.module';
 import { SearchCategoryPipe } from './shared/pipes/search-category.pipe';
 import { SearchProductPipe } from './shared/pipes/search-product.pipe';
 
+import { NgxUiLoaderModule, NgxUiLoaderRouterModule } from "ngx-ui-loader";
+import { ngxUiLoaderConfig } from "./preloader-config"
+
 import { CarouselModule } from 'ngx-bootstrap/carousel';
 import { ModalModule } from 'ngx-bootstrap/modal';
 import { ProgressbarModule } from 'ngx-bootstrap/progressbar';
@@ -70,6 +73,8 @@ import { BasketComponent } from './pages/basket/basket.component';
     CarouselModule.forRoot(),
     ModalModule.forRoot(),
     ProgressbarModule.forRoot(),
+    NgxUiLoaderModule.forRoot(ngxUiLoaderConfig),
+    NgxUiLoaderRouterModule
   ],
   providers: [],
   bootstrap: [AppComponent]
