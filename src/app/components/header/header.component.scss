@@ -261,8 +261,11 @@
             top: 4vh;
         }
         &--list {
-            margin-top: -150px;
             margin-left: 35px;
+            & a {
+                width: 8em;
+                height: 1.7em;
+            }
         }
     }
 }

@@ -7,13 +7,13 @@
         <div class="user__content">
             <div class="user__content--form">
                 <label for="firstName">FirstName: </label>
-                <p><input [readonly]="ReadonlyStatus" [style.border]="SaveStatus ? '2px solid red' : 'none'" type="text" [(ngModel)]="firstName" name="firstName"
-                        id="firstName" [value]="firstName"></p>
+                <p><input [readonly]="ReadonlyStatus" [style.border]="SaveStatus ? '2px solid red' : 'none'" type="text"
+                        [(ngModel)]="firstName" name="firstName" id="firstName" [value]="firstName"></p>
             </div>
             <div class="user__content--form">
                 <label for="lastName">LastName: </label>
-                <p><input [readonly]="ReadonlyStatus" [style.border]="SaveStatus ? '2px solid red' : 'none'" type="text" [(ngModel)]="lastName" name="lastName" id="lastName"
-                        [value]="lastName"></p>
+                <p><input [readonly]="ReadonlyStatus" [style.border]="SaveStatus ? '2px solid red' : 'none'" type="text"
+                        [(ngModel)]="lastName" name="lastName" id="lastName" [value]="lastName"></p>
             </div>
             <div class="user__content--form">
                 <label for="lastName">Discount: </label>
@@ -21,28 +21,28 @@
             </div>
             <div class="user__content--form">
                 <label for="phone">Phone: </label>
-                <p><input [readonly]="ReadonlyStatus" [style.border]="SaveStatus ? '2px solid red' : 'none'" type="text" [(ngModel)]="phone" name="phone" id="phone"
-                        [value]="phone"></p>
+                <p><input [readonly]="ReadonlyStatus" [style.border]="SaveStatus ? '2px solid red' : 'none'" type="text"
+                        [(ngModel)]="phone" name="phone" id="phone" [value]="phone"></p>
             </div>
             <div class="user__content--form">
                 <label for="region">Region: </label>
-                <p><input [readonly]="ReadonlyStatus" [style.border]="SaveStatus ? '2px solid red' : 'none'" type="text" [(ngModel)]="region" name="region" id="region"
-                        [value]="region"></p>
+                <p><input [readonly]="ReadonlyStatus" [style.border]="SaveStatus ? '2px solid red' : 'none'" type="text"
+                        [(ngModel)]="region" name="region" id="region" [value]="region"></p>
             </div>
             <div class="user__content--form">
                 <label for="city">City: </label>
-                <p><input [readonly]="ReadonlyStatus" [style.border]="SaveStatus ? '2px solid red' : 'none'" type="text" [(ngModel)]="city" name="city" id="city"
-                        [value]="city"></p>
+                <p><input [readonly]="ReadonlyStatus" [style.border]="SaveStatus ? '2px solid red' : 'none'" type="text"
+                        [(ngModel)]="city" name="city" id="city" [value]="city"></p>
             </div>
             <div class="user__content--form">
                 <label for="street">Street: </label>
-                <p><input [readonly]="ReadonlyStatus" [style.border]="SaveStatus ? '2px solid red' : 'none'" type="text" [(ngModel)]="street" name="street" id="street"
-                        [value]="street"></p>
+                <p><input [readonly]="ReadonlyStatus" [style.border]="SaveStatus ? '2px solid red' : 'none'" type="text"
+                        [(ngModel)]="street" name="street" id="street" [value]="street"></p>
             </div>
             <div class="user__content--form">
                 <label for="house">House: </label>
-                <p><input [readonly]="ReadonlyStatus" [style.border]="SaveStatus ? '2px solid red' : 'none'" type="text" [(ngModel)]="house" name="house" id="house"
-                        [value]="house"></p>
+                <p><input [readonly]="ReadonlyStatus" [style.border]="SaveStatus ? '2px solid red' : 'none'" type="text"
+                        [(ngModel)]="house" name="house" id="house" [value]="house"></p>
             </div>
             <div *ngIf="UpdateStatus" class="user__content--form">
                 <label for="file-input">
@@ -55,6 +55,25 @@
             </div>
             <div *ngIf="SaveStatus" class="user__content--save">
                 <button (click)="SaveContentProfile()">Save your Profile</button>
+            </div>
+        </div>
+    </section>
+    <section class="orders">
+        <div class="oredes__container" *ngFor="let orders of orders">
+            <span class="orders__date">{{ orders.date.seconds * 1000 | date:'yyyy-MM-dd' }}</span>
+            <div class="orders__content">
+                <div class="orders__card" *ngFor="let prod of orders.products">
+                    <div class="orders__card--image">
+                        <img [attr.src]="prod?.image" [alt]="prod?.name">
+                    </div>
+                    <div class="orders__card--text">
+                        <p>{{ prod?.name }}</p>
+                        <span>{{(prod?.price * (100 - discount)/100).toFixed()}}$</span>
+                    </div>
+                </div>
+                <div class="orders__total">
+                    <span>Total price {{ orders.totalPrice }} $</span>
+                </div>
             </div>
         </div>
     </section>

@@ -1004,7 +1004,7 @@
         background: linear-gradient(to top, #000000, #232526);
         @include flexbox(flex, center, center, column);
         &__content {
-            margin-top: -170px;
+            margin-top: -70px;
             @include flexbox(flex, center, center, column);
             width: 100%;
             height: 50%;

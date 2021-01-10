@@ -26,13 +26,17 @@ export class UserAuthService {
       .then(userResponse => {
         const user = new Profile(userResponse.user.email, phone, region, comments, discount);
         this.db.collection('users').add({ ...user })
-          .then(collection => {
-            collection.get()
-              .then(user => {
-                localStorage.setItem('user', JSON.stringify(user.data()));
-                this.cheackSignIn.next(true);
-                this.router.navigateByUrl('profile');
-              })
+        this.db.collection('users').ref.where('email', '==', userResponse.user.email).onSnapshot(
+          snap => {
+            snap.forEach(user => {
+              const myUser = {
+                id: user.id,
+                ...user.data() as any
+              }
+              localStorage.setItem('user', JSON.stringify(myUser));
+              this.cheackSignIn.next(true);
+              this.router.navigateByUrl('profile');
+            })
           })
       })
       .catch(err => console.log(err));

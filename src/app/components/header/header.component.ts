@@ -14,7 +14,7 @@ import { MenuService } from '../../shared/services/menu.service';
 export class HeaderComponent implements OnInit {
 
   basket: Array<IProduct> = [];
-  length: number;
+  length: number = 0;
 
   statusMenu: false;
   translateMenu = 'translate3d(350px,0,0)';
@@ -93,7 +93,7 @@ export class HeaderComponent implements OnInit {
   }
 
   scrollToLogin(): void {
-    document.getElementById('reserve').scrollIntoView({ behavior: "smooth" });
+    document.querySelector('.reserve').scrollIntoView({ behavior: "smooth" });
   }
 
   activeMenu(): void {

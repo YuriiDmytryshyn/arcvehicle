@@ -14,7 +14,7 @@ export class OrderService {
   ordersRef: AngularFirestoreCollection<IOrder> = null;
 
   constructor(
-    private db: AngularFirestore
+    private db: AngularFirestore,
   ) {
     this.ordersRef = this.db.collection(this.dbPathOrders);
   }
@@ -41,6 +41,8 @@ export class OrderService {
   }
 
   create(order: IOrder): Promise<DocumentReference<IOrder>> {
+    let localProducts: Array<IProduct> = [];
+    this.basket.next(localProducts);
     return this.ordersRef.add({ ...order });
   }
 }

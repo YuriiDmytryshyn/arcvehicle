@@ -34,7 +34,7 @@ export class HomeComponent implements OnInit {
   }
 
   scrollToLogin(): void{
-    document.getElementById('reserve').scrollIntoView({ behavior: "smooth" });
+    document.querySelector('.reserve').scrollIntoView({ behavior: "smooth" });
   }
 
   getNews(): void {

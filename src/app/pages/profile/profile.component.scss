@@ -7,21 +7,21 @@
     transition: transform 1s;
 }
 
-.line{
+.line {
     width: 100%;
     height: 20vh;
     background-color: $light-black-color;
 }
 
-.user{
+.user {
     height: 80vh;
     width: 100%;
     @include flexbox(flex, center, center);
-    &__image{
+    &__image {
         @include flexbox(flex, center, center);
         width: 40%;
         height: 100%;
-        & img{
+        & img {
             cursor: pointer;
             width: 80%;
             height: 80%;
@@ -29,30 +29,31 @@
             object-fit: cover;
         }
     }
-    &__content{
+    &__content {
         padding: 10px;
         @include flexbox(flex, space-around, center, column);
         width: 60%;
         height: 100%;
-        &--form{
+        &--form {
             width: 80%;
             @include flexbox(flex, space-around, center);
-            & input{
+            & input {
                 width: 100%;
                 border: none;
                 outline: none;
                 font-size: 18px;
             }
-            & label{
+            & label {
                 width: 50%;
                 font-size: 18px;
+                padding-bottom: 12px;
             }
         }
-        &--update{
+        &--update {
             @include flexbox(flex, center, center);
             width: 100%;
             height: 10%;
-            & button{
+            & button {
                 font-size: 20px;
                 font-family: $font-russo;
                 width: 80%;
@@ -64,11 +65,11 @@
                 outline: none;
             }
         }
-        &--save{
+        &--save {
             @include flexbox(flex, center, center);
             width: 100%;
             height: 10%;
-            & button{
+            & button {
                 font-size: 20px;
                 font-family: $font-russo;
                 width: 80%;
@@ -79,6 +80,63 @@
                 color: white;
                 outline: none;
             }
+        }
+    }
+}
+
+.orders {
+    margin: 50px auto 50px;
+    width: 90%;
+    min-height: 10vh;
+    &__date {
+        font-size: 24px;
+        font-family: $font-russo;
+    }
+    &__content{
+      @include flexbox(flex, flex-start, center, row, wrap);
+      flex-wrap: wrap; 
+    }
+    &__card{
+        @include flexbox(flex);
+        font-family: $font-russo;
+        margin-right: 20px;
+        margin-bottom: 20px;
+        width: 300px;
+        height: 200px;
+        & img{
+            width: 200px;
+            height: 200px;
+            border-radius: 5px;
+        }
+    }
+    &__total{
+        @include flexbox(flex, center, center);
+        height: 200px;
+        width: 200px;
+        background-color: $light-black-color;
+        color: $white-color;
+        font-family: $font-russo;
+        border-radius: 5px;
+        font-size: 18px;
+    }
+}
+
+@media screen and (max-device-width: 992px) and (min-device-width: $breakpoint-phones) {
+    .user {
+        min-height: 120vh;
+        @include flexbox(flex, center, center, column);
+        &__image {
+            width: 100%;
+            height: 50%;
+            & img {
+                width: 70%;
+                height: 70%;
+                border-radius: 10%;
+            }
+        }
+        &__content {
+            width: 100%;
+            height: 50%;
         }
     }
 }

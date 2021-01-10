@@ -1,5 +1,11 @@
 <div class="conteiner" [style.transform]="menuActive">
-    <section *ngIf="IfShow" class="reserve" id="reserve">
+    <section *ngIf="!IfShow" class="reserve" style="height: 50vh;">
+        <div class="reserve__text" style="width: 100%;">
+            <h2 style="width: 80%;">RESERVE YOUR ARC VECTOR</h2><br>
+            <p style="width: 80%;">Thank you for your enquiry. Your message has been sent. One of the Arc team will be in touch shortly.</p>
+        </div>
+    </section>
+    <section *ngIf="IfShow" class="reserve">
         <div class="reserve__content">
             <h2>RESERVE YOUR ARC VECTOR</h2><br>
             <p>Reserve your Arc Vector now - Our first model is limited to 399 units with first customer deliveries
@@ -13,33 +19,33 @@
             <div>
                 <form name="form" class="form">
                     <div class="form__group field">
-                        <input (input)="emailRegExp()" [style.border-bottom-color]="emailRegExp() ? 'red' : 'white'"
+                        <input (input)="emailRegExp()" [style.border-bottom-color]="emailRegExp() ? 'green' : 'white'"
                             [(ngModel)]="email" type="input" class="form__field" autocomplete="off"
                             placeholder="Email address" name="email" id='email' required />
                         <label for="email" class="form__label">Email address</label>
                     </div>
                     <div class="form__group field">
                         <input (input)="passwordRegExp()"
-                            [style.border-bottom-color]="passwordRegExp() ? 'red' : 'white'" [(ngModel)]="password"
+                            [style.border-bottom-color]="passwordRegExp() ? 'green' : 'white'" [(ngModel)]="password"
                             type="input" class="form__field" autocomplete="off" placeholder="Password" name="password"
                             id='password' required />
                         <label for="password" class="form__label">Password</label>
                     </div>
                     <div class="form__group field">
-                        <input (input)="phoneRegExp()" [style.border-bottom-color]="phoneRegExp() ? 'red' : 'white'"
+                        <input (input)="phoneRegExp()" [style.border-bottom-color]="phoneRegExp() ? 'green' : 'white'"
                             [(ngModel)]="phone" type="input" class="form__field" autocomplete="off"
                             placeholder="Phone number" name="number" id='number' required />
                         <label for="number" class="form__label">Phone number</label>
                     </div>
                     <div class="form__group field">
-                        <input (input)="regionRegExp" [style.border-bottom-color]="regionRegExp() ? 'red' : 'white'"
+                        <input (input)="regionRegExp" [style.border-bottom-color]="regionRegExp() ? 'green' : 'white'"
                             [(ngModel)]="region" type="input" class="form__field" autocomplete="off"
                             placeholder="Region" name="region" id='region' required />
                         <label for="region" class="form__label">Region</label>
                     </div>
                     <div class="form__group field">
                         <textarea (input)="commentsRegExp()"
-                            [style.border-bottom-color]="commentsRegExp() ? 'red' : 'white'" [(ngModel)]="comments"
+                            [style.border-bottom-color]="commentsRegExp() ? 'green' : 'white'" [(ngModel)]="comments"
                             name="comments" id="comments" class="form__field" autocomplete="off"
                             placeholder="comments"></textarea>
                         <label for="comments" class="form__label">Comments (optional)</label>

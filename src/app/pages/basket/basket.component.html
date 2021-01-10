@@ -1,7 +1,8 @@
 <div class="conteiner" [style.transform]="menuActive">
     <div class="title">Make order</div>
     <section *ngIf="!basket.length" class="table__empty" style="min-height: 20vh;margin-top: 50px;margin-bottom: 50px;">
-        <h2 style="font-family: Russo;font-size: 24px;">The basket is empty</h2><img style="width: 50px;height: 50px;" src="assets/images/shopping-basket.svg" alt="basket">
+        <h2 style="font-family: Russo;font-size: 24px;">The basket is empty</h2><img style="width: 50px;height: 50px;"
+            src="assets/images/shopping-basket.svg" alt="basket">
     </section>
     <div class="basket">
         <section *ngIf="basket.length" class="information">
@@ -36,7 +37,8 @@
                 </div>
                 <div class="form-group comments" style="display: flex;flex-direction: column;">
                     <label for="comments1">My Comments: </label>
-                    <textarea [(ngModel)]="comments" name="comments" id="comments1" cols="30" rows="5" style="border-radius: 3px;"></textarea>
+                    <textarea [(ngModel)]="comments" name="comments" id="comments1" cols="30" rows="5"
+                        style="border-radius: 3px;"></textarea>
                 </div>
             </form>
         </section>
@@ -49,8 +51,8 @@
                 <div class="td">Total price</div>
             </div>
             <div class="table__tr body" *ngFor="let prod of basket">
-                <div class="td"><img (click)="closeModal(closeTemplate)" (click)="indexProduct(prod)" class="delete__product"
-                        src="assets/images/close.svg" alt="delete__product"></div>
+                <div class="td"><img (click)="closeModal(closeTemplate)" (click)="indexProduct(prod)"
+                        class="delete__product" src="assets/images/close.svg" alt="delete__product"></div>
                 <div class="td"><img class="table__image" [attr.src]="prod?.image" [alt]="prod.name"></div>
                 <div class="td">{{ prod.price }}$</div>
                 <div class="td" style="display: flex;justify-content: center;">
@@ -65,11 +67,42 @@
                 <div class="footer__td">{{ totalPrice }}$</div>
             </div>
             <div *ngIf="!IfShow" class="table__tr footer">
-                <div class="footer__td">{{ firstName }} {{ lastName }} your discount {{ discount }} % price without discount {{
-                    totalPrice }}</div>
+                <div class="footer__td">{{ firstName }} {{ lastName }} your discount {{ discount }} % price without
+                    discount {{
+                    totalPrice }} $</div>
                 <div class="footer__td">{{ (totalPrice * (100 - discount)/100).toFixed() }}$</div>
             </div>
             <div class="table__tr button">
+                <button (click)="addOrder()">Buy</button>
+            </div>
+        </section>
+        <section *ngIf="basket.length" class="card">
+            <div class="card__prod" *ngFor="let prod of basket">
+                <div class="card__prod--image">
+                    <img [attr.src]="prod?.image" [alt]="prod.name">
+                    <div class="card__prod--count">
+                        <span class="less__product" (click)="prodCount(prod, false)">-</span>
+                        <div class="total">{{ prod.count }}</div>
+                        <span class="more__product" (click)="prodCount(prod, true)">+</span>
+                    </div>
+                </div>
+                <div class="card__prod--content">
+                    <h3>{{ prod.name }}</h3>
+                    <p>{{ prod.category.name }}</p>
+                    <div>{{ prod.price * prod.count }}$</div>
+                </div>
+            </div>
+            <div *ngIf="IfShow" class="card__prod--footer">
+                <div>Register and get a discount from 1% to 5%</div>
+                <div style="width: 100%;display: flex;justify-content: flex-end;font-size: 22px;">{{ totalPrice }}$</div>
+            </div>
+            <div *ngIf="!IfShow" class="card__prod--footer">
+                <div>{{ firstName }} {{ lastName }} your discount {{ discount }} % price without
+                    discount {{
+                    totalPrice }} $</div>
+                <div style="width: 100%;display: flex;justify-content: flex-end;font-size: 22px;">{{ (totalPrice * (100 - discount)/100).toFixed() }}$</div>
+            </div>
+            <div class="card__prod--button">
                 <button (click)="addOrder()">Buy</button>
             </div>
         </section>

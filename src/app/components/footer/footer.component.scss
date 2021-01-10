@@ -30,6 +30,23 @@
             font-size: 18px;
         }
     }
+    &__text{
+        @include flexbox(flex, center, center, column);
+        width: 50%;
+        color: $white-color;
+        line-height: 1.5;
+        margin-bottom: 100px;
+       & h2 {
+            font-family: $font-russo;
+            width: 65%;
+            font-size: 26px;
+        }
+        & p {
+            font-family: $font-gothic;
+            width: 65%;
+            font-size: 18px;
+        } 
+    }
     &__form {
         width: 50%;
         font-family: $font-gothic;

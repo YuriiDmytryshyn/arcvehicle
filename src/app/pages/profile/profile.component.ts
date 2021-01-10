@@ -3,6 +3,7 @@ import { AngularFireStorage } from '@angular/fire/storage';
 import { Observable } from 'rxjs';
 import { IOrder } from 'src/app/shared/interfaces/order.interface';
 import { MenuService } from 'src/app/shared/services/menu.service';
+import { OrderService } from 'src/app/shared/services/order.service';
 import { UserAuthService } from 'src/app/shared/services/user-auth.service';
 
 @Component({
@@ -40,6 +41,7 @@ export class ProfileComponent implements OnInit {
     private menuService: MenuService,
     private storage: AngularFireStorage,
     private userAuthServise: UserAuthService,
+    private orderService: OrderService,
   ) { }
 
   ngOnInit(): void {
@@ -90,6 +92,8 @@ export class ProfileComponent implements OnInit {
 
   private userCredential(): void {
     this.currentUser = JSON.parse(localStorage.getItem('user'));
+    this.orders = this.currentUser.orders;
+    console.log(this.orders);
     this.email = this.currentUser.email;
     this.discount = this.currentUser.discount;
     if (this.currentUser.firstName) {

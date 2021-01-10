@@ -1,4 +1,5 @@
 import { Component, OnInit, TemplateRef } from '@angular/core';
+import { Router } from '@angular/router';
 import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
 import { Order } from 'src/app/shared/classes/order.model';
 import { IProduct } from 'src/app/shared/interfaces/product.interface';
@@ -40,6 +41,7 @@ export class BasketComponent implements OnInit {
     private userAuthServise: UserAuthService,
     private orderService: OrderService,
     private modalService: BsModalService,
+    private router: Router
   ) { }
 
   ngOnInit(): void {
@@ -52,12 +54,8 @@ export class BasketComponent implements OnInit {
       this.isMenuActive(this.menuStatus);
     });
   }
- 
+
   addOrder(): void {
-    // if (localStorage.getItem('user')) {
-    //   let price = (this.totalPrice * (100 - this.discount) / 100);
-    //   this.totalPrice = price;
-    // }
     const order = new Order(
       this.basket,
       this.firstName,
@@ -75,12 +73,18 @@ export class BasketComponent implements OnInit {
         if (localStorage.getItem('user')) {
           this.currentUser = JSON.parse(localStorage.getItem('user'));
           this.currentUser.orders.push({ ...order });
-          this.userAuthServise.updateUserOrder(this.currentUser.id, order).then(
+          this.userAuthServise.updateUserOrder(this.currentUser.id, this.currentUser).then(
             () => {
               this.updateLocal();
               localStorage.removeItem('basket');
+              this.router.navigateByUrl('home');
+              this.resetForm();
             }
           )
+        } else {
+          localStorage.removeItem('basket');
+          this.router.navigateByUrl('home');
+          this.resetForm();
         }
       }
     )
@@ -140,13 +144,7 @@ export class BasketComponent implements OnInit {
     } else {
       this.IfShow = true;
       this.discount = null;
-      this.firstName = '';
-      this.lastName = '';
-      this.phone = '';
-      this.region = '';
-      this.city = '';
-      this.street = '';
-      this.house = '';
+      this.resetForm();
     }
   };
 
@@ -185,5 +183,16 @@ export class BasketComponent implements OnInit {
   closeModal(template: TemplateRef<any>) {
     this.modalRef = this.modalService.show(template, { class: 'modal-sm' });
   };
+
+  private resetForm(): void{
+    this.firstName = '';
+    this.lastName = '';
+    this.phone = '';
+    this.region = '';
+    this.city = '';
+    this.street = '';
+    this.house = '';
+    this.comments = '';
+  }
 
 }
