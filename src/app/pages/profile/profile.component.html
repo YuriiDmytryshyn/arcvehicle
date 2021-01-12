@@ -68,11 +68,12 @@
                     </div>
                     <div class="orders__card--text">
                         <p>{{ prod?.name }}</p>
-                        <span>{{(prod?.price * (100 - discount)/100).toFixed()}}$</span>
+                        <span>Count {{ prod?.count }}</span><br>
+                        <span>{{ prod?.price }}$</span>
                     </div>
                 </div>
                 <div class="orders__total">
-                    <span>Total price {{ orders.totalPrice }} $</span>
+                    <span>Total price {{ (orders?.totalPrice * (100 - discount)/100).toFixed() }} $</span>
                 </div>
             </div>
         </div>

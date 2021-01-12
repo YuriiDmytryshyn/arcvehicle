@@ -50,6 +50,19 @@ export class ProfileComponent implements OnInit {
       this.isMenuActive(this.menuStatus);
     });
     this.userCredential();
+    this.cheackLocalOrder();
+    this.cheakOrder();
+  }
+
+  cheackLocalOrder(): void{
+    this.orderService.basket.subscribe(() => {
+      this.cheakOrder();
+    })
+  }
+
+  cheakOrder(): void{
+    this.currentUser = JSON.parse(localStorage.getItem('user'));
+    this.orders = this.currentUser.orders.reverse();
   }
 
   SaveContentProfile(): void {
@@ -92,8 +105,6 @@ export class ProfileComponent implements OnInit {
 
   private userCredential(): void {
     this.currentUser = JSON.parse(localStorage.getItem('user'));
-    this.orders = this.currentUser.orders;
-    console.log(this.orders);
     this.email = this.currentUser.email;
     this.discount = this.currentUser.discount;
     if (this.currentUser.firstName) {
