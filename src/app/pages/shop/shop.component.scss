@@ -3,7 +3,10 @@
 
 .conteiner {
     overflow: hidden;
-    user-select: none;
+    -webkit-user-select: none;
+       -moz-user-select: none;
+        -ms-user-select: none;
+            user-select: none;
     transition: transform 1s;
     display: flex;
     background-color: $light-black-color;
@@ -145,7 +148,8 @@
     border-radius: 25px 5px 5px 5px;
     position: absolute;
     left: 0;
-    object-fit: cover;
+    -o-object-fit: cover;
+       object-fit: cover;
     margin-top: 0px;
     margin-left: 8px;
     outline: none;
@@ -331,7 +335,8 @@
         border-radius: 25px 25px 0px 0px;
         // position: absolute;
         left: 0;
-        object-fit: cover;
+        -o-object-fit: cover;
+           object-fit: cover;
         margin-top: 0px;
         margin-left: 0px;
         outline: none;

@@ -5,7 +5,10 @@
     padding-top: 25vh;
     background-color: $light-black-color;
     overflow: hidden;
-    user-select: none;
+    -webkit-user-select: none;
+       -moz-user-select: none;
+        -ms-user-select: none;
+            user-select: none;
     transition: transform 1s;
     padding-bottom: 2vh;
 }

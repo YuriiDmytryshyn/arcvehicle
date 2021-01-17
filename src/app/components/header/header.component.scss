@@ -4,7 +4,10 @@
 .header {
     z-index: 888;
     transition: transform 1s;
-    user-select: none;
+    -webkit-user-select: none;
+       -moz-user-select: none;
+        -ms-user-select: none;
+            user-select: none;
     height: 20vh;
     width: 100%;
     background-color: inherit;
@@ -152,14 +155,16 @@
                 height: 80%;
                 top: 10%;
                 left: calc(-0.15em - 0.08em * 2);
-                filter: brightness(0.8);
+                -webkit-filter: brightness(0.8);
+                        filter: brightness(0.8);
             }
 
             &::after {
                 height: 60%;
                 top: 20%;
                 left: calc(-0.15em * 2 - 0.08em * 3);
-                filter: brightness(0.6);
+                -webkit-filter: brightness(0.6);
+                        filter: brightness(0.6);
             }
             &:hover span {
                 transform: translateX(0.15em);
